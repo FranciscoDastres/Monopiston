@@ -1,4 +1,4 @@
-import type { CustomerMotorcycleUpdate } from '@dracing/contracts';
+import type { CustomerMotorcycleUpdate } from '@monopiston/contracts';
 import { useQuery } from '@tanstack/react-query';
 import { Link } from 'react-router-dom';
 

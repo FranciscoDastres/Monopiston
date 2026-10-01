@@ -2,8 +2,8 @@ import type {
   CreateMotorcycleInput,
   Motorcycle,
   UpdateMotorcycleInput,
-} from '@dracing/contracts';
-import type { DatabaseClient } from '@dracing/database';
+} from '@monopiston/contracts';
+import type { DatabaseClient } from '@monopiston/database';
 
 import type { MotorcycleRepository } from '../domain/motorcycle-repository.js';
 

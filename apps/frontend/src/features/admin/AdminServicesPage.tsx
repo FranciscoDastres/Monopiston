@@ -1,4 +1,4 @@
-import type { AdminService, CreateServiceInput } from '@dracing/contracts';
+import type { AdminService, CreateServiceInput } from '@monopiston/contracts';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { useState, type FormEvent } from 'react';
 

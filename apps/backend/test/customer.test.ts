@@ -3,7 +3,7 @@ import type {
   Invoice,
   ReportPreset,
   ServiceHistoryRecord,
-} from '@dracing/contracts';
+} from '@monopiston/contracts';
 
 import { buildApp } from '../src/app.js';
 import { SessionService } from '../src/modules/auth/application/session-service.js';

@@ -1,4 +1,4 @@
-import type { DatabaseClient } from '@dracing/database';
+import type { DatabaseClient } from '@monopiston/database';
 
 import {
   PaymentService,
@@ -11,7 +11,7 @@ import type {
 
 const config: PaymentServiceConfig = {
   currency: 'CLP',
-  subjectPrefix: 'Reserva cita DRacing',
+  subjectPrefix: 'Reserva cita Monopiston',
   urlConfirmation: 'https://api.example.cl/v1/payments/flow/confirm',
   urlReturn: 'https://api.example.cl/v1/payments/flow/return',
 };

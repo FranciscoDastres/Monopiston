@@ -11,3 +11,6 @@ packages/database/src/generated/
 .vite/
 
 .worktrees/
+
+.playwright-cli/
+output/playwright/

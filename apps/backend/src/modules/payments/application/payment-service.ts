@@ -2,8 +2,8 @@ import type {
   PaymentSettings,
   PaymentStatusView,
   UpdatePaymentSettingsInput,
-} from '@dracing/contracts';
-import type { DatabaseClient } from '@dracing/database';
+} from '@monopiston/contracts';
+import type { DatabaseClient } from '@monopiston/database';
 
 import {
   NoopWhatsAppNotifier,
@@ -268,7 +268,7 @@ export class PaymentService {
     if (confirmedPhone) {
       try {
         await this.whatsapp.send({
-          body: 'Tu pago fue confirmado y tu cita en D Racing Pro está reservada. ¡Te esperamos!',
+          body: 'Tu pago fue confirmado y tu cita en Monopiston está reservada. ¡Te esperamos!',
           kind: 'payment_confirmed',
           to: confirmedPhone,
         });

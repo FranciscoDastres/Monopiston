@@ -1,4 +1,4 @@
-import type { DatabaseClient } from '@dracing/database';
+import type { DatabaseClient } from '@monopiston/database';
 
 import { PrismaAuthRepository } from '../src/modules/auth/infrastructure/prisma-auth-repository.js';
 

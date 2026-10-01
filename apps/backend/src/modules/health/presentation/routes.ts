@@ -1,4 +1,4 @@
-import type { HealthResponse } from '@dracing/contracts';
+import type { HealthResponse } from '@monopiston/contracts';
 import type { FastifyPluginAsync } from 'fastify';
 
 export interface HealthRoutesOptions {
@@ -11,7 +11,7 @@ export const healthRoutes: FastifyPluginAsync<HealthRoutesOptions> = async (
 ) => {
   app.get('/live', async (_request, reply) => {
     const response: HealthResponse = {
-      service: 'dracing-api',
+      service: 'monopiston-api',
       status: 'ok',
       timestamp: new Date().toISOString(),
     };
@@ -24,7 +24,7 @@ export const healthRoutes: FastifyPluginAsync<HealthRoutesOptions> = async (
       await options.checkDatabase();
 
       const response: HealthResponse = {
-        service: 'dracing-api',
+        service: 'monopiston-api',
         status: 'ok',
         timestamp: new Date().toISOString(),
         checks: { database: 'ok' },
@@ -35,7 +35,7 @@ export const healthRoutes: FastifyPluginAsync<HealthRoutesOptions> = async (
       app.log.error({ err: error }, 'Database readiness check failed');
 
       const response: HealthResponse = {
-        service: 'dracing-api',
+        service: 'monopiston-api',
         status: 'degraded',
         timestamp: new Date().toISOString(),
         checks: { database: 'degraded' },

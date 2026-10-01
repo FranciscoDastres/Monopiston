@@ -12,8 +12,8 @@ import type {
   RescheduleAppointmentInput,
   ServiceBay,
   UpdateAppointmentStatusInput,
-} from '@dracing/contracts';
-import type { DatabaseClient } from '@dracing/database';
+} from '@monopiston/contracts';
+import type { DatabaseClient } from '@monopiston/database';
 
 import {
   AppointmentConflictError,

@@ -52,7 +52,7 @@ export function AppShell() {
     }
   };
 
-  const initials = (user?.displayName ?? 'D R')
+  const initials = (user?.displayName ?? 'M')
     .split(' ')
     .map((part) => part[0])
     .slice(0, 2)
@@ -70,10 +70,10 @@ export function AppShell() {
             to="/"
           >
             <span className="bg-primary shadow-primary/20 grid size-9 place-items-center rounded-lg text-xs font-black text-white italic shadow-lg">
-              DR
+              M
             </span>
             <span className="hidden text-sm font-bold tracking-[0.18em] uppercase sm:block">
-              D Racing <span className="text-accent">Pro</span>
+              Monopiston
             </span>
           </NavLink>
 

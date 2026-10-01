@@ -4,7 +4,7 @@ import type {
   AvailabilitySlot,
   CustomerMotorcycleUpdate,
   ServiceBay,
-} from '@dracing/contracts';
+} from '@monopiston/contracts';
 
 import { buildApp } from '../src/app.js';
 import type { AppointmentRoutesOptions } from '../src/modules/appointments/presentation/routes.js';

@@ -1,4 +1,4 @@
-import type { AvailabilitySlot } from '@dracing/contracts';
+import type { AvailabilitySlot } from '@monopiston/contracts';
 
 import { slotTimeFormatter } from './appointment-formatters';
 

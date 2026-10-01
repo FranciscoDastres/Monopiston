@@ -1,4 +1,4 @@
-import type { DatabaseClient } from '@dracing/database';
+import type { DatabaseClient } from '@monopiston/database';
 
 import {
   AppointmentConflictError,

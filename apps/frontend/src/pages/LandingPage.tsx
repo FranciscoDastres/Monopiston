@@ -1,4 +1,4 @@
-import type { HealthResponse } from '@dracing/contracts';
+import type { HealthResponse } from '@monopiston/contracts';
 import { useEffect, useState, type MouseEvent } from 'react';
 
 import { BookingModal } from '../features/appointments/BookingModal';

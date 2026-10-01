@@ -15,7 +15,7 @@ export function LegalPage() {
             className="font-display text-sm font-bold tracking-[0.12em] text-white uppercase"
             to="/"
           >
-            D Racing <span className="text-primary">Pro</span>
+            Monopiston
           </Link>
           <Link className="text-muted hover:text-foreground text-sm" to="/">
             ← Volver al inicio

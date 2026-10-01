@@ -1,4 +1,4 @@
-# D Racing Pro
+# Monopiston
 
 Base de arquitectura para la plataforma de gestión de citas de un taller
 especializado en Honda NAVI.
@@ -24,6 +24,9 @@ especializado en Honda NAVI.
 - [Desarrollo local](docs/local-development.md)
 - [Migración a NestJS](docs/nestjs-migration.md)
 - [Roadmap](docs/roadmap.md)
+- [Estado actualizado](docs/status-2026-10-01.md)
+- [Skills de desarrollo](docs/skills.md)
+- [Deployment](docs/deploy-render.md)
 
 La primera migración propuesta está en
 [`database/migrations/001_initial_schema.sql`](database/migrations/001_initial_schema.sql).
@@ -46,8 +49,8 @@ existe uno):
 ```bash
 ADMIN_EMAIL=administrador@ejemplo.cl \
 ADMIN_PASSWORD='una-clave-segura-de-12-o-mas' \
-ADMIN_DISPLAY_NAME='Administrador D Racing Pro' \
-pnpm --filter @dracing/backend admin:create
+ADMIN_DISPLAY_NAME='Administrador Monopiston' \
+pnpm --filter @monopiston/backend admin:create
 ```
 
 También se puede usar `ADMIN_GENERATE_PASSWORD=true` en lugar de

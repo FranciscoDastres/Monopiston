@@ -1,4 +1,4 @@
-import type { CustomerDashboard } from '@dracing/contracts';
+import type { CustomerDashboard } from '@monopiston/contracts';
 import { useQuery } from '@tanstack/react-query';
 import { Link } from 'react-router-dom';
 

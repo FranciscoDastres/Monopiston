@@ -1,4 +1,4 @@
-import { createDatabaseClient } from '@dracing/database';
+import { createDatabaseClient } from '@monopiston/database';
 
 import { buildApp } from './app.js';
 import { parseEnvironment, resolveTrustProxy } from './config/env.js';
@@ -32,7 +32,7 @@ const paymentService = new PaymentService(
   flowClient,
   {
     currency: 'CLP',
-    subjectPrefix: 'Reserva cita DRacing',
+    subjectPrefix: 'Reserva cita Monopiston',
     urlConfirmation:
       environment.FLOW_CONFIRM_URL ??
       `${environment.API_ORIGIN}/v1/payments/flow/confirm`,

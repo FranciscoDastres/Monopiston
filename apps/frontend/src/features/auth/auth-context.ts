@@ -2,7 +2,7 @@ import type {
   AdminLoginInput,
   CurrentUser,
   UpdateProfileInput,
-} from '@dracing/contracts';
+} from '@monopiston/contracts';
 import { createContext, useContext } from 'react';
 
 export interface AuthContextValue {

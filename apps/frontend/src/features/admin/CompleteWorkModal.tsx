@@ -2,7 +2,7 @@ import type {
   AdminAppointment,
   ReportPreset,
   ReportPresetKind,
-} from '@dracing/contracts';
+} from '@monopiston/contracts';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { useState } from 'react';
 

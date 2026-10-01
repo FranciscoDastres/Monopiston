@@ -1,6 +1,6 @@
 # Migración del backend a NestJS
 
-Esta guía explica la migración inicial del backend de D Racing Pro desde
+Esta guía explica la migración inicial del backend de Monopiston desde
 Fastify directo hacia NestJS usando `@nestjs/platform-fastify`. El objetivo no es
 reescribir todo de una vez, sino cambiar el runtime de forma verificable y luego
 migrar cada módulo HTTP con bajo riesgo.
@@ -196,9 +196,9 @@ Si te preguntan por la decisión técnica:
 ## Comandos de validación
 
 ```bash
-pnpm --filter @dracing/backend typecheck
-pnpm --filter @dracing/backend test
-pnpm --filter @dracing/backend build
+pnpm --filter @monopiston/backend typecheck
+pnpm --filter @monopiston/backend test
+pnpm --filter @monopiston/backend build
 ```
 
 Para validar el stack completo:

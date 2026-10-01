@@ -47,27 +47,27 @@ El frontend llama a la API con rutas relativas y la sesión usa cookies
 
 ## Variables del backend
 
-| Variable                | Valor                                                              | Origen    |
-| ----------------------- | ------------------------------------------------------------------ | --------- |
-| `NODE_ENV`              | `production`                                                       | blueprint |
-| `COOKIE_SECURE`         | `true`                                                             | blueprint |
-| `TZ`                    | `America/Santiago`                                                 | blueprint |
-| `SESSION_SECRET`        | generada por Render                                                | blueprint |
-| `DATABASE_URL`          | Supabase Session pooler `:5432` + `sslmode=require&uselibpqcompat=true` | manual |
-| `APP_ORIGIN`            | `https://d-racing-pro-frontend.vercel.app`                         | blueprint |
-| `API_ORIGIN`            | `https://d-racing-pro-frontend.vercel.app`                         | blueprint |
-| `GOOGLE_CLIENT_ID`      | credencial de Google Cloud                                         | manual    |
-| `GOOGLE_CLIENT_SECRET`  | credencial de Google Cloud                                         | manual    |
-| `GOOGLE_REDIRECT_URI`   | `https://d-racing-pro-frontend.vercel.app/v1/auth/google/callback` | blueprint |
-| `ADMIN_EMAIL`           | correo del único administrador                                     | manual    |
-| `ADMIN_PASSWORD`        | secreto de 12–128 caracteres                                       | manual    |
-| `FLOW_API_BASE`         | `https://sandbox.flow.cl/api`                                      | blueprint |
-| `FLOW_API_KEY`          | credencial Flow                                                    | manual    |
-| `FLOW_SECRET_KEY`       | credencial Flow                                                    | manual    |
-| `CLOUDINARY_CLOUD_NAME` | identificador del entorno Cloudinary                               | manual    |
-| `CLOUDINARY_API_KEY`    | API key del entorno Cloudinary                                     | manual    |
-| `CLOUDINARY_API_SECRET` | secreto exclusivo del backend                                      | manual    |
-| `CLOUDINARY_FOLDER`     | `dracing-pro`                                                      | blueprint |
+| Variable                | Valor                                                                   | Origen    |
+| ----------------------- | ----------------------------------------------------------------------- | --------- |
+| `NODE_ENV`              | `production`                                                            | blueprint |
+| `COOKIE_SECURE`         | `true`                                                                  | blueprint |
+| `TZ`                    | `America/Santiago`                                                      | blueprint |
+| `SESSION_SECRET`        | generada por Render                                                     | blueprint |
+| `DATABASE_URL`          | Supabase Session pooler `:5432` + `sslmode=require&uselibpqcompat=true` | manual    |
+| `APP_ORIGIN`            | `https://d-racing-pro-frontend.vercel.app`                              | blueprint |
+| `API_ORIGIN`            | `https://d-racing-pro-frontend.vercel.app`                              | blueprint |
+| `GOOGLE_CLIENT_ID`      | credencial de Google Cloud                                              | manual    |
+| `GOOGLE_CLIENT_SECRET`  | credencial de Google Cloud                                              | manual    |
+| `GOOGLE_REDIRECT_URI`   | `https://d-racing-pro-frontend.vercel.app/v1/auth/google/callback`      | blueprint |
+| `ADMIN_EMAIL`           | correo del único administrador                                          | manual    |
+| `ADMIN_PASSWORD`        | secreto de 12–128 caracteres                                            | manual    |
+| `FLOW_API_BASE`         | `https://sandbox.flow.cl/api`                                           | blueprint |
+| `FLOW_API_KEY`          | credencial Flow                                                         | manual    |
+| `FLOW_SECRET_KEY`       | credencial Flow                                                         | manual    |
+| `CLOUDINARY_CLOUD_NAME` | identificador del entorno Cloudinary                                    | manual    |
+| `CLOUDINARY_API_KEY`    | API key del entorno Cloudinary                                          | manual    |
+| `CLOUDINARY_API_SECRET` | secreto exclusivo del backend                                           | manual    |
+| `CLOUDINARY_FOLDER`     | `dracing-pro`                                                           | blueprint |
 
 Render inyecta `PORT`; el backend escucha en `0.0.0.0:$PORT`. En Vercel,
 `VITE_API_URL` debe quedar vacía o sin definir para usar el proxy relativo.
@@ -119,6 +119,24 @@ dos métodos de login y una reserva con pago sandbox.
   latencia continua se necesita una instancia que no haga spin-down.
 - Revisar los límites, pausado y backups del plan de Supabase elegido antes de
   tratarlo como producción definitiva.
-- Detrás de Vercel y Render hay dos proxies. El default conservador de
-  `TRUSTED_PROXY=1` protege contra IPs falseadas, aunque puede agrupar usuarios
-  bajo la IP de salida de Vercel para el rate limit.
+- Detrás de Vercel y Render hay dos proxies. Fastify 5.12 descarta la confianza
+  basada solo en un número de saltos; el adaptador aplica `false` a esos valores
+  para impedir IPs falseadas. Para confiar en un proxy, usar una lista IP/CIDR
+  verificada en `TRUSTED_PROXY`. Sin ella, el rate limit puede agrupar clientes
+  bajo la IP del proxy.
+
+## Marca Monopiston (octubre de 2026)
+
+El repositorio se llama `FranciscoDastres/Monopiston` y el proyecto existente de
+Vercel se llama `monopiston`. Se conserva el dominio público
+`https://d-racing-pro-frontend.vercel.app`, sus rewrites a
+`https://dracingpro.onrender.com` y el servicio existente de Render. Estos
+identificadores están vinculados con Google OAuth, cookies y variables del
+backend; cambiar únicamente el hostname rompe la autenticación.
+
+El frontend y la API utilizan la marca Monopiston y los builds de Docker
+usan `@monopiston/*`. No se renombra la base ni se crean servicios nuevos.
+
+Para cambiar posteriormente el dominio público, actualizar juntos el dominio de
+Vercel, `APP_ORIGIN`, `API_ORIGIN` y `GOOGLE_REDIRECT_URI` en Render, además del
+callback autorizado en Google.

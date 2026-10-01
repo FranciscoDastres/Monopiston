@@ -1,5 +1,5 @@
 import { TZDate } from '@date-fns/tz';
-import type { DatabaseClient } from '@dracing/database';
+import type { DatabaseClient } from '@monopiston/database';
 
 import {
   AppointmentConflictError,

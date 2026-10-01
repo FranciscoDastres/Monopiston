@@ -1,4 +1,4 @@
-import type { BusinessHour, ScheduleException } from '@dracing/contracts';
+import type { BusinessHour, ScheduleException } from '@monopiston/contracts';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { useState } from 'react';
 
