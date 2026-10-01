@@ -1,10 +1,10 @@
 /** Monopiston wordmark with a compact piston symbol. */
 export function BrandLogo() {
   return (
-    <span className="inline-flex items-center gap-2 text-[#1a1a1a]">
+    <span className="text-foreground inline-flex items-center gap-2">
       <svg
         aria-hidden="true"
-        className="text-primary size-8 shrink-0"
+        className="text-accent size-8 shrink-0"
         fill="none"
         stroke="currentColor"
         strokeLinecap="round"

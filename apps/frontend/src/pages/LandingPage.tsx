@@ -197,50 +197,25 @@ export function LandingPage() {
     >
       <BookingModal onClose={() => setBookingOpen(false)} open={bookingOpen} />
       <LoginModal onClose={() => setLoginOpen(false)} open={loginOpen} />
-      <header className="sticky top-0 z-50 border-b border-white/10 bg-[#090909]/95 backdrop-blur-xl">
+      <header className="bg-background sticky top-0 z-50 border-b border-white/15">
         <TopBar onMenuClick={() => setMenuOpen(true)} />
 
-        <div className="grid h-[72px] grid-cols-[1fr_auto_1fr] items-center px-5 sm:px-8 lg:px-12">
-          <span aria-hidden="true" />
-          <nav
-            aria-label="Navegación de portada"
-            className="hidden items-center justify-center gap-7 lg:flex"
+        <div className="bg-primary flex min-h-14 items-center justify-center gap-6 px-5 sm:gap-14">
+          <a
+            className="flex min-h-14 items-center gap-2 text-xs font-bold text-white sm:text-sm"
+            href={BOOKING_URL}
           >
-            <a className="landing-nav-link" href="#servicios">
-              Servicios
-            </a>
-            <a className="landing-nav-link" href="#clientes">
-              Clientes
-            </a>
-            <a className="landing-nav-link" href="#nosotros">
-              Acerca de nosotros
-            </a>
-          </nav>
-
-          <div className="flex items-center justify-end gap-3 sm:gap-4">
-            <span
-              className="hidden items-center gap-2 text-xs text-[#b8b8b8] md:flex"
-              role="status"
-            >
-              <span
-                className={`size-2 rounded-full ${
-                  apiState === 'online'
-                    ? 'bg-success shadow-[0_0_10px_var(--color-success)]'
-                    : apiState === 'offline'
-                      ? 'bg-primary'
-                      : 'bg-warning animate-pulse'
-                }`}
-              />
-              {systemLabel}
-            </span>
-            <a
-              className="landing-secondary-button hidden sm:inline-flex"
-              href={LOGIN_URL}
-            >
-              <Icon name="user" />
-              Mi cuenta
-            </a>
-          </div>
+            <Icon name="calendar" />
+            Agendar una cita
+          </a>
+          <span aria-hidden="true" className="h-6 w-px bg-white/30" />
+          <a
+            className="flex min-h-14 items-center gap-2 text-xs font-bold text-white sm:text-sm"
+            href={LOGIN_URL}
+          >
+            <Icon name="user" />
+            Mi cuenta
+          </a>
         </div>
       </header>
 
@@ -259,11 +234,11 @@ export function LandingPage() {
         />
         <aside
           aria-label="Menú principal"
-          className={`absolute top-[108px] right-0 bottom-0 w-full max-w-sm border-l border-white/10 bg-[#0c0c0c] p-6 shadow-2xl transition-transform duration-300 sm:p-8 ${
+          className={`bg-lead-deep absolute top-[120px] right-0 bottom-0 w-full max-w-sm border-l border-white/10 p-6 shadow-2xl transition-transform duration-300 sm:p-8 ${
             menuOpen ? 'translate-x-0' : 'translate-x-full'
           }`}
         >
-          <p className="text-primary text-xs font-semibold tracking-[0.2em] uppercase">
+          <p className="text-accent text-xs font-semibold tracking-[0.2em] uppercase">
             Navegación
           </p>
           <h2 className="mt-3 text-2xl">Todo para tu Navi</h2>
@@ -283,7 +258,7 @@ export function LandingPage() {
                   <span className="font-display block text-sm font-bold tracking-[0.05em] uppercase">
                     {item.label}
                   </span>
-                  <span className="mt-1 block text-xs text-[#8f8f8f]">
+                  <span className="text-muted mt-1 block text-xs">
                     {item.description}
                   </span>
                 </span>
@@ -293,7 +268,7 @@ export function LandingPage() {
               </a>
             ))}
           </div>
-          <p className="mt-8 text-sm leading-6 text-[#9c9c9c]">
+          <p className="text-muted mt-8 text-sm leading-6">
             Atención especializada para Honda Navi, con información clara antes,
             durante y después del servicio.
           </p>
@@ -304,7 +279,7 @@ export function LandingPage() {
         <section
           aria-label="Destacados"
           aria-roledescription="carrusel"
-          className="landing-hero relative isolate min-h-[calc(100svh-108px)] overflow-hidden"
+          className="landing-hero relative isolate overflow-hidden"
         >
           {heroSlides.map((slide, index) => (
             <div
@@ -314,7 +289,7 @@ export function LandingPage() {
               }`}
               key={index}
               style={{
-                backgroundColor: '#171717',
+                backgroundColor: '#454545',
                 backgroundImage: `url('${slide.image}')`,
                 backgroundPosition: slide.position,
                 filter: slide.filter,
@@ -322,17 +297,10 @@ export function LandingPage() {
             />
           ))}
           <div className="landing-hero-overlay absolute inset-0 -z-10" />
-          <div className="absolute inset-y-0 left-0 -z-10 hidden w-2/3 bg-[linear-gradient(105deg,rgba(0,0,0,.7),transparent)] lg:block" />
-
-          <div className="bg-primary absolute top-6 right-6 z-10 hidden rounded-md px-3 py-2 shadow-lg sm:block">
-            <span className="font-display text-sm font-black tracking-[0.18em] text-white">
-              HONDA
-            </span>
-          </div>
 
           <button
             aria-label="Imagen anterior"
-            className="absolute top-1/2 left-3 z-10 grid size-11 -translate-y-1/2 place-items-center rounded-full border border-white/30 bg-black/30 text-2xl leading-none text-white backdrop-blur transition hover:border-white hover:bg-black/55 sm:left-6"
+            className="bg-primary absolute top-1/4 left-3 z-10 grid size-11 -translate-y-1/2 place-items-center border border-white/30 text-2xl leading-none text-white backdrop-blur transition hover:border-white hover:brightness-110 sm:top-1/2 sm:left-6"
             onClick={() => goToSlide(heroSlide - 1)}
             type="button"
           >
@@ -340,26 +308,24 @@ export function LandingPage() {
           </button>
           <button
             aria-label="Imagen siguiente"
-            className="absolute top-1/2 right-3 z-10 grid size-11 -translate-y-1/2 place-items-center rounded-full border border-white/30 bg-black/30 text-2xl leading-none text-white backdrop-blur transition hover:border-white hover:bg-black/55 sm:right-6"
+            className="bg-primary absolute top-1/4 right-3 z-10 grid size-11 -translate-y-1/2 place-items-center border border-white/30 text-2xl leading-none text-white backdrop-blur transition hover:border-white hover:brightness-110 sm:top-1/2 sm:right-6"
             onClick={() => goToSlide(heroSlide + 1)}
             type="button"
           >
             ›
           </button>
 
-          <div className="mx-auto flex min-h-[calc(100svh-108px)] max-w-7xl items-end px-5 pt-20 pb-20 sm:px-6 lg:items-center lg:px-10 lg:py-24">
-            <div className="max-w-3xl">
-              <p className="text-primary mb-5 flex items-center gap-3 text-[11px] font-semibold tracking-[0.22em] uppercase sm:text-xs">
+          <div className="landing-hero-content mx-auto flex max-w-7xl items-end px-5 pt-64 pb-20 sm:items-center sm:px-16 sm:pt-20 lg:px-10 lg:py-20">
+            <div className="max-w-2xl">
+              <p className="text-foreground mb-5 flex items-center gap-3 text-[11px] font-semibold tracking-[0.22em] uppercase sm:text-xs">
                 <span className="bg-primary h-0.5 w-10" />
                 {currentHeroSlide.eyebrow}
               </p>
-              <h1 className="max-w-3xl text-[clamp(2.9rem,8vw,6.6rem)] leading-[0.9] font-extrabold tracking-[-0.045em] text-[#f4f4f4]">
+              <h1 className="text-foreground max-w-2xl text-[clamp(2.2rem,4.5vw,4rem)] leading-[1.02] font-extrabold tracking-[-0.035em]">
                 {currentHeroSlide.titleTop}
-                <span className="text-primary block">
-                  {currentHeroSlide.titleAccent}
-                </span>
+                <span className="block">{currentHeroSlide.titleAccent}</span>
               </h1>
-              <p className="mt-7 max-w-xl text-base leading-7 text-[#c9c9c9] sm:text-lg sm:leading-8">
+              <p className="text-muted mt-7 max-w-xl text-base leading-7 sm:text-lg sm:leading-8">
                 {currentHeroSlide.subtitle}
               </p>
 
@@ -371,7 +337,7 @@ export function LandingPage() {
                 </a>
               </div>
 
-              <div className="mt-10 flex flex-wrap gap-x-7 gap-y-3 text-xs font-medium text-[#d0d0d0]">
+              <div className="text-muted mt-10 flex flex-wrap gap-x-7 gap-y-3 text-xs font-medium">
                 {[
                   'Agenda 24/7',
                   'Seguimiento en vivo',
@@ -388,7 +354,7 @@ export function LandingPage() {
             </div>
           </div>
 
-          <div className="absolute right-6 bottom-6 z-10 flex gap-2">
+          <div className="absolute bottom-6 left-1/2 z-10 flex -translate-x-1/2 gap-2 sm:right-6 sm:left-auto sm:translate-x-0">
             {heroSlides.map((slide, index) => (
               <button
                 aria-current={index === heroSlide}
@@ -406,36 +372,62 @@ export function LandingPage() {
           </div>
         </section>
 
-        <section className="bg-[#f2f2f0] text-[#151515]" id="servicios">
+        <nav
+          aria-label="Navegación de portada"
+          className="bg-lead-nav sticky top-[120px] z-30 border-y border-white/15"
+        >
+          <div className="mx-auto grid min-h-14 max-w-4xl grid-cols-3 items-center text-center">
+            <a
+              className="landing-nav-link flex min-h-14 items-center justify-center px-2"
+              href="#servicios"
+            >
+              Servicios
+            </a>
+            <a
+              className="landing-nav-link flex min-h-14 items-center justify-center px-2"
+              href="#clientes"
+            >
+              Clientes
+            </a>
+            <a
+              className="landing-nav-link flex min-h-14 items-center justify-center px-2"
+              href="#nosotros"
+            >
+              Nosotros
+            </a>
+          </div>
+        </nav>
+
+        <section className="bg-background text-foreground" id="servicios">
           <div className="mx-auto max-w-7xl px-5 py-20 sm:px-6 sm:py-28 lg:px-10">
             <div className="max-w-2xl">
               <h2 className="text-4xl leading-[1.05] font-semibold tracking-tight sm:text-6xl">
                 Servicios
               </h2>
-              <p className="mt-5 text-lg leading-7 text-[#5a5a5a]">
+              <p className="text-muted mt-5 text-lg leading-7">
                 Cada uno con precio y duración a la vista. Eliges, agendas y
                 listo.
               </p>
             </div>
 
-            <div className="mt-14 grid gap-px overflow-hidden border border-black/10 bg-black/10 md:grid-cols-3">
+            <div className="mt-14 grid gap-px overflow-hidden border border-white/15 bg-white/15 md:grid-cols-3">
               {serviceCards.map((service) => (
                 <article
-                  className="group bg-[#f8f8f6] p-7 transition hover:bg-white sm:p-9"
+                  className="group bg-surface hover:bg-lead-hover p-7 transition sm:p-9"
                   key={service.number}
                 >
                   <div className="flex items-start justify-between">
-                    <span className="group-hover:bg-primary group-hover:border-primary grid size-12 place-items-center border border-black/10 text-[#1a1a1a] transition group-hover:text-white">
+                    <span className="group-hover:bg-primary group-hover:border-primary text-foreground grid size-12 place-items-center border border-white/25 transition group-hover:text-white">
                       <Icon name={service.icon} />
                     </span>
-                    <span className="font-display text-xs font-bold tracking-[0.14em] text-[#a4a4a4]">
+                    <span className="font-display text-muted text-xs font-bold tracking-[0.14em]">
                       {service.number}
                     </span>
                   </div>
                   <h3 className="mt-14 text-xl leading-tight">
                     {service.title}
                   </h3>
-                  <p className="mt-4 text-sm leading-6 text-[#686868]">
+                  <p className="text-muted mt-4 text-sm leading-6">
                     {service.description}
                   </p>
                 </article>
@@ -444,13 +436,13 @@ export function LandingPage() {
           </div>
         </section>
 
-        <section className="bg-[#0b0b0b]" id="clientes">
+        <section className="bg-lead-deep" id="clientes">
           <div className="mx-auto max-w-7xl px-5 py-20 sm:px-6 sm:py-28 lg:px-10">
             <div className="max-w-2xl">
               <h2 className="text-4xl leading-[1.05] font-semibold tracking-tight text-white sm:text-6xl">
                 Nuestros clientes
               </h2>
-              <p className="mt-5 text-lg leading-7 text-[#a4a4a4]">
+              <p className="text-muted mt-5 text-lg leading-7">
                 Lo que dicen quienes ya confían el cuidado de su NAVI con
                 nosotros.
               </p>
@@ -478,7 +470,7 @@ export function LandingPage() {
                 },
               ].map((testimonial) => (
                 <figure
-                  className="flex h-full flex-col rounded-2xl border border-white/10 bg-white/[0.03] p-6"
+                  className="bg-surface flex h-full flex-col border border-white/15 p-6"
                   key={testimonial.name}
                 >
                   <div
@@ -489,7 +481,7 @@ export function LandingPage() {
                       <span key={index}>★</span>
                     ))}
                   </div>
-                  <blockquote className="mt-4 flex-1 leading-7 text-[#d6d6d6]">
+                  <blockquote className="text-foreground mt-4 flex-1 leading-7">
                     “{testimonial.quote}”
                   </blockquote>
                   <figcaption className="mt-5 border-t border-white/10 pt-4">
@@ -504,16 +496,16 @@ export function LandingPage() {
           </div>
         </section>
 
-        <section className="bg-[#0a0a0a]" id="nosotros">
+        <section className="bg-background" id="nosotros">
           <div className="mx-auto max-w-7xl px-5 py-20 sm:px-6 sm:py-24 lg:px-10">
             <div className="max-w-3xl">
-              <p className="text-primary text-xs font-semibold tracking-[0.2em] uppercase">
+              <p className="text-accent text-xs font-semibold tracking-[0.2em] uppercase">
                 Acerca de nosotros
               </p>
               <h2 className="mt-4 text-3xl leading-tight sm:text-5xl">
                 Especialistas en tu Honda NAVI
               </h2>
-              <p className="mt-6 text-lg leading-8 text-[#c9c9c9]">
+              <p className="text-muted mt-6 text-lg leading-8">
                 Somos un taller dedicado al servicio técnico de motocicletas
                 Honda NAVI. Trabajamos con atención cercana y precios claros: te
                 explicamos qué necesita tu moto, cuánto demora y cuánto cuesta
@@ -532,6 +524,15 @@ export function LandingPage() {
       <WhatsAppButton />
 
       <Footer />
+      <div
+        className="bg-lead-deep text-muted flex items-center justify-center gap-2 pb-5 text-xs"
+        role="status"
+      >
+        <span
+          className={`size-2 rounded-full ${apiState === 'online' ? 'bg-success' : apiState === 'offline' ? 'bg-accent' : 'bg-warning'}`}
+        />
+        {systemLabel}
+      </div>
     </div>
   );
 }
