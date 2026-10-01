@@ -66,7 +66,7 @@ export function LoginModal({ onClose, open }: LoginModalProps) {
         </p>
 
         <button
-          className="mt-6 flex w-full items-center justify-center gap-3 rounded-xl bg-white px-4 py-3 text-sm font-bold text-[#151515] transition hover:brightness-95"
+          className="bg-lead-hover text-foreground mt-6 flex w-full items-center justify-center gap-3 rounded-xl border border-white/20 px-4 py-3 text-sm font-bold transition hover:brightness-110"
           onClick={() => window.location.assign(GOOGLE_LOGIN_URL)}
           type="button"
         >

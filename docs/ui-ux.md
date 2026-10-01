@@ -1,25 +1,30 @@
 # UI/UX
 
-## Paleta propuesta
+## Tema plomo de Monopiston
 
-| Token            |      Dark |     Light | Uso                              |
-| ---------------- | --------: | --------: | -------------------------------- |
-| `background`     | `#080B10` | `#F6F7F9` | Fondo general                    |
-| `surface`        | `#111722` | `#FFFFFF` | Cards y paneles                  |
-| `surface-raised` | `#1A2330` | `#E9EDF2` | Elementos elevados               |
-| `text`           | `#F4F7FA` | `#111722` | Texto principal                  |
-| `text-muted`     | `#9AA6B2` | `#586474` | Texto secundario                 |
-| `primary`        | `#F04438` | `#D92D20` | Acción principal, energía racing |
-| `accent`         | `#27D3C2` | `#087F74` | Disponibilidad y foco de marca   |
-| `warning`        | `#FDB022` | `#B54708` | Atención/espera                  |
-| `success`        | `#32D583` | `#027A48` | Confirmado/completado            |
-| `danger`         | `#FF6B6B` | `#B42318` | Error/cancelación                |
+Referencia visual: [Honda NAVI](https://motos.honda.cl/modelos/navi/).
+La portada adapta la cabecera compacta, la franja roja de acciones, la imagen
+principal y la navegación por secciones de la referencia. Los fondos blancos
+se sustituyen por un gris plomo neutro; se mantiene texto claro para contraste.
 
-El grafito reduce fatiga visual y remite al entorno mecánico. El rojo comunica
-velocidad y sirve como gesto visual racing; el turquesa separa acciones de agenda
-y disponibilidad sin competir con estados de error. No se depende solo del color:
-todos los estados llevan icono y texto. Las combinaciones finales deben superar
-WCAG AA (4.5:1 para texto normal) en ambos temas.
+| Token        | Valor     | Uso                                 |
+| ------------ | --------- | ----------------------------------- |
+| `background` | `#454545` | Fondo general, cabecera y secciones |
+| `surface`    | `#505050` | Tarjetas, paneles y diálogos        |
+| `lead-deep`  | `#353535` | Footer, menú y secciones alternadas |
+| `lead-nav`   | `#3B3B3B` | Navegación por secciones            |
+| `lead-hover` | `#5A5A5A` | Superficies interactivas            |
+| `foreground` | `#F5F5F5` | Texto principal                     |
+| `muted`      | `#D0D0D0` | Texto secundario                    |
+| `primary`    | `#DF001B` | Franja y acciones principales       |
+| `accent`     | `#FF959D` | Acentos legibles sobre plomo        |
+| `warning`    | `#FDB022` | Atención y espera                   |
+| `success`    | `#32D583` | Confirmado y completado             |
+
+Los tokens están centralizados en `apps/frontend/src/styles/index.css`.
+Los fondos plomo utilizan canales RGB iguales, sin dominante azul. El texto
+claro se conserva; sustituirlo por plomo reduciría el contraste. En móvil, las
+flechas del carrusel se sitúan sobre la imagen para no cubrir los títulos.
 
 ## Principios de interacción
 
