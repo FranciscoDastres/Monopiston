@@ -36,7 +36,7 @@ services:
         value: https://d-racing-pro-frontend.vercel.app/v1/auth/google/callback
       # Bootstrap idempotente del único administrador local.
       - key: ADMIN_DISPLAY_NAME
-        value: Administrador D Racing Pro
+        value: Administrador Monopiston
       - key: ADMIN_EMAIL
         sync: false
       - key: ADMIN_PASSWORD

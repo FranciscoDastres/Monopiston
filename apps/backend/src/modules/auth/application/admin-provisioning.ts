@@ -1,4 +1,4 @@
-import type { DatabaseClient } from '@dracing/database';
+import type { DatabaseClient } from '@monopiston/database';
 
 import type { AuthUser } from '../domain/auth.js';
 import { hashPassword } from '../infrastructure/password.js';

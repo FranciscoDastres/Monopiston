@@ -1,4 +1,4 @@
-import type { AdminMetrics, AdminUser } from '@dracing/contracts';
+import type { AdminMetrics, AdminUser } from '@monopiston/contracts';
 
 import { buildApp } from '../src/app.js';
 import { SessionService } from '../src/modules/auth/application/session-service.js';

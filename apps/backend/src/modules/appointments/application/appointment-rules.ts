@@ -1,4 +1,4 @@
-import type { Appointment } from '@dracing/contracts';
+import type { Appointment } from '@monopiston/contracts';
 
 export const ACTIVE_STATUSES = [
   // A slot held while its Flow payment is pending must keep blocking the slot

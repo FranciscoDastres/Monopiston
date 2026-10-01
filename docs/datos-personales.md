@@ -1,7 +1,7 @@
 # Datos personales y derecho de supresión (Ley 21.719)
 
 > Borrador técnico para apoyar la revisión legal. **No es asesoría legal.**
-> Documenta qué datos personales guarda DRacingPro y cómo opera la eliminación
+> Documenta qué datos personales guarda Monopiston y cómo opera la eliminación
 > de cuenta, para cumplir con la Ley 21.719 (protección de datos personales,
 > Chile) sin vulnerar las obligaciones de retención tributaria del SII.
 

@@ -17,8 +17,8 @@ COPY packages/contracts packages/contracts
 ARG VITE_API_URL=""
 ENV VITE_API_URL=${VITE_API_URL}
 
-RUN pnpm --filter @dracing/contracts build \
-    && pnpm --filter @dracing/frontend build
+RUN pnpm --filter @monopiston/contracts build \
+    && pnpm --filter @monopiston/frontend build
 
 FROM nginxinc/nginx-unprivileged:1.29-alpine AS runtime
 

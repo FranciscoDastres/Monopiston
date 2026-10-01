@@ -2,7 +2,7 @@ import type {
   CreateMotorcycleInput,
   Motorcycle,
   UpdateMotorcycleInput,
-} from '@dracing/contracts';
+} from '@monopiston/contracts';
 
 export interface MotorcycleRepository {
   create(

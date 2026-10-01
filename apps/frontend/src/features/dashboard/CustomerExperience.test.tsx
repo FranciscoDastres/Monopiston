@@ -2,7 +2,7 @@ import type {
   CustomerDashboard,
   Invoice,
   ServiceHistoryRecord,
-} from '@dracing/contracts';
+} from '@monopiston/contracts';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { fireEvent, render, screen } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';

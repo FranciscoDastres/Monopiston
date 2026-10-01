@@ -22,7 +22,7 @@ export function Footer() {
             className="font-display text-xl font-black tracking-[0.12em] text-white uppercase"
             href="#top"
           >
-            D Racing <span className="text-primary">Pro</span>
+            Monopiston
           </a>
           <nav className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-[11px] font-semibold tracking-[0.08em] uppercase">
             {legalLinks.map((link, index) => (
@@ -74,8 +74,8 @@ export function Footer() {
         </div>
 
         <p className="mt-12 border-t border-white/10 pt-8 text-center text-[11px] text-[#6a6a6a]">
-          © {new Date().getFullYear()} D Racing Pro · Servicio técnico Honda
-          NAVI · Santiago, Chile.
+          © {new Date().getFullYear()} Monopiston · Servicio técnico Honda NAVI
+          · Santiago, Chile.
         </p>
       </div>
     </footer>

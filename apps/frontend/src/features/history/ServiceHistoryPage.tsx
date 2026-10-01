@@ -1,4 +1,4 @@
-import type { ServiceHistoryRecord } from '@dracing/contracts';
+import type { ServiceHistoryRecord } from '@monopiston/contracts';
 import * as Accordion from '@radix-ui/react-accordion';
 import { useQuery } from '@tanstack/react-query';
 

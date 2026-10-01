@@ -1,4 +1,4 @@
-import type { Service } from '@dracing/contracts';
+import type { Service } from '@monopiston/contracts';
 
 export interface ServiceRepository {
   listActive(): Promise<Service[]>;

@@ -37,7 +37,7 @@ services:
       context: .
       dockerfile: apps/backend/Dockerfile
     environment:
-      ADMIN_DISPLAY_NAME: ${ADMIN_DISPLAY_NAME:-Administrador D Racing Pro}
+      ADMIN_DISPLAY_NAME: ${ADMIN_DISPLAY_NAME:-Administrador Monopiston}
       ADMIN_EMAIL: ${ADMIN_EMAIL:-}
       ADMIN_PASSWORD: ${ADMIN_PASSWORD:-}
       API_ORIGIN: http://localhost:${API_PORT:-3300}

@@ -7,7 +7,7 @@ No agregues credenciales reales dentro de este archivo ni en ningún commit.
 
 ## INICIO DEL PROMPT
 
-Quiero que continúes hasta dejar operativo en Render el backend de DRacingPro,
+Quiero que continúes hasta dejar operativo en Render el backend de Monopiston,
 con PostgreSQL de Supabase y la configuración de Cloudinary. Tienes autorización
 para inspeccionar el repositorio, modificar los archivos necesarios, ejecutar
 pruebas, crear commits y hacer push. No me vuelvas a preguntar en qué carpeta
@@ -32,7 +32,7 @@ Reglas obligatorias de trabajo:
 
 ### Estado que ya está preparado
 
-- Repositorio remoto: `https://github.com/FranciscoDastres/DRacingPro.git`.
+- Repositorio remoto: `https://github.com/FranciscoDastres/Monopiston.git`.
 - Rama de entrega: `fix/node-24-render-readiness`, basada en `origin/main`.
 - Render despliega desde `main`, por lo que primero debes comprobar si esa rama
   ya fue fusionada. Si no lo fue, revisa sus commits, abre/fusiona el PR si los
@@ -115,7 +115,7 @@ API_ORIGIN=https://d-racing-pro-frontend.vercel.app
 GOOGLE_CLIENT_ID=<secreto de Google>
 GOOGLE_CLIENT_SECRET=<secreto de Google>
 GOOGLE_REDIRECT_URI=https://d-racing-pro-frontend.vercel.app/v1/auth/google/callback
-ADMIN_DISPLAY_NAME=Administrador D Racing Pro
+ADMIN_DISPLAY_NAME=Administrador Monopiston
 ADMIN_EMAIL=<correo del administrador>
 ADMIN_PASSWORD=<secreto entre 12 y 128 caracteres>
 FLOW_API_BASE=https://sandbox.flow.cl/api

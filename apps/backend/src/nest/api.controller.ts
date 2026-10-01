@@ -5,7 +5,7 @@ export class ApiController {
   @Get()
   info() {
     return {
-      name: 'D Racing Pro API',
+      name: 'Monopiston API',
       version: '0.1.0',
     };
   }

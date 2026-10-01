@@ -7,8 +7,8 @@ import type {
   ReportPreset,
   ReportPresetKind,
   ServiceHistoryRecord,
-} from '@dracing/contracts';
-import type { DatabaseClient } from '@dracing/database';
+} from '@monopiston/contracts';
+import type { DatabaseClient } from '@monopiston/database';
 import PDFDocument from 'pdfkit';
 
 const ACTIVE_WORKSHOP_STATUSES = ['checked_in', 'in_service', 'ready'] as const;
@@ -338,7 +338,7 @@ export class CustomerService {
     });
 
     const appointment = invoice.appointments;
-    document.fontSize(20).fillColor('#111111').text('D RACING PRO');
+    document.fontSize(20).fillColor('#111111').text('MONOPISTON');
     document.moveDown(0.25).fontSize(10).fillColor('#555555');
     document.text('Comprobante de servicio no tributario');
     document.moveDown(1.5).fontSize(12).fillColor('#111111');

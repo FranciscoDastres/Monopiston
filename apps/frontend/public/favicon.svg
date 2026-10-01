@@ -1,12 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="D Racing Pro">
-  <defs>
-    <linearGradient id="g" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#ff2948"/>
-      <stop offset="1" stop-color="#e60023"/>
-    </linearGradient>
-  </defs>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Monopiston">
   <rect width="64" height="64" rx="14" fill="#07090d"/>
-  <path d="M18 14h15c10.5 0 18 7.4 18 18s-7.5 18-18 18H18z" fill="url(#g)"/>
-  <path d="M28 24h6c4.6 0 8 3.5 8 8s-3.4 8-8 8h-6z" fill="#07090d"/>
-  <rect x="40" y="11" width="6" height="42" rx="3" transform="rotate(24 43 32)" fill="#ff2948"/>
+  <g fill="none" stroke="#ff2948" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M18 10h28v22H18zM18 17h28M18 24h28M27 32v12m10-12v12"/>
+    <circle cx="32" cy="49" r="8"/>
+  </g>
 </svg>

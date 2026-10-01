@@ -18,7 +18,7 @@ describe('App', () => {
 
         return {
           headers: { get: () => 'application/json' },
-          json: async () => ({ service: 'dracing-api', status: 'ok' }),
+          json: async () => ({ service: 'monopiston-api', status: 'ok' }),
           ok: true,
           status: 200,
         };

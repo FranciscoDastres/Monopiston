@@ -1,6 +1,6 @@
 # Desarrollo local
 
-Guía para levantar D Racing Pro en una máquina de desarrollo, incluyendo el
+Guía para levantar Monopiston en una máquina de desarrollo, incluyendo el
 acceso de desarrollo (sin Google) y el flujo de agendamiento.
 
 ## Requisitos
@@ -67,8 +67,8 @@ las migraciones se aprovisiona una sola vez con acceso directo a PostgreSQL:
 ```bash
 ADMIN_EMAIL=administrador@ejemplo.cl \
 ADMIN_PASSWORD='una-clave-segura-de-12-o-mas' \
-ADMIN_DISPLAY_NAME='Administrador D Racing Pro' \
-pnpm --filter @dracing/backend admin:create
+ADMIN_DISPLAY_NAME='Administrador Monopiston' \
+pnpm --filter @monopiston/backend admin:create
 ```
 
 Para generar una contraseña aleatoria, reemplazar `ADMIN_PASSWORD` por

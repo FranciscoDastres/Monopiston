@@ -25,8 +25,8 @@ jobs:
           cache: pnpm
 
       - run: pnpm install --frozen-lockfile
-      - run: pnpm --filter @dracing/contracts build
-      - run: pnpm --filter @dracing/frontend build
+      - run: pnpm --filter @monopiston/contracts build
+      - run: pnpm --filter @monopiston/frontend build
       # lhci via dlx para no agregarlo como dependencia ni tocar el lockfile.
       - run: pnpm dlx @lhci/cli@0.14.0 autorun
 

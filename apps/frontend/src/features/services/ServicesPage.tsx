@@ -1,4 +1,4 @@
-import type { Service } from '@dracing/contracts';
+import type { Service } from '@monopiston/contracts';
 import { useQuery } from '@tanstack/react-query';
 
 import { Card } from '../../components/ui/Card';

@@ -2,7 +2,7 @@ import {
   AdminLoginSchema,
   type CurrentUser,
   UpdateProfileSchema,
-} from '@dracing/contracts';
+} from '@monopiston/contracts';
 import type { FastifyPluginAsync, FastifyReply, FastifyRequest } from 'fastify';
 import { z } from 'zod';
 

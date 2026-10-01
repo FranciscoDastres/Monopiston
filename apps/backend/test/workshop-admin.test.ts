@@ -1,4 +1,4 @@
-import type { AdminService, BusinessHour } from '@dracing/contracts';
+import type { AdminService, BusinessHour } from '@monopiston/contracts';
 
 import { buildApp } from '../src/app.js';
 import { SessionService } from '../src/modules/auth/application/session-service.js';
