@@ -198,6 +198,15 @@ button,
   object-position: 62% center;
 }
 
+.landing-hero-slide {
+  opacity: 1;
+  transition: opacity 750ms ease;
+}
+
+.landing-hero-slide[aria-hidden='true'] {
+  opacity: 0;
+}
+
 @media (min-width: 640px) {
   :root {
     --landing-header-height: 138px;

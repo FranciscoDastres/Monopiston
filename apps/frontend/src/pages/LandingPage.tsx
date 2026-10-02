@@ -11,6 +11,7 @@ import { Icon, type IconName } from '../components/ui/Icon';
 import { BRAND } from '../config/brand';
 import { CONTACT, whatsappLink } from '../config/contact';
 import { Footer } from '../features/landing/Footer';
+import { HeroCarousel } from '../features/landing/HeroCarousel';
 import { TopBar } from '../features/landing/TopBar';
 import { WhatsAppButton } from '../features/landing/WhatsAppButton';
 
@@ -232,20 +233,8 @@ export function LandingPage() {
       </dialog>
 
       <main id="top">
-        <section
-          aria-label="Servicio especializado Honda NAVI"
-          className="landing-hero relative isolate overflow-hidden"
-        >
-          <img
-            alt=""
-            className="landing-hero-image absolute inset-0 -z-20 size-full object-cover"
-            fetchPriority="high"
-            height="1081"
-            src="/images/navi-service-hero.webp"
-            width="1920"
-          />
-          <div className="landing-hero-overlay absolute inset-0 -z-10" />
-          <div className="landing-hero-content mx-auto flex max-w-7xl items-end px-5 pt-64 pb-16 sm:items-center sm:px-6 sm:py-20 lg:px-10">
+        <HeroCarousel>
+          <div className="landing-hero-content mx-auto flex max-w-7xl items-end px-5 pt-64 pb-28 sm:items-center sm:px-6 sm:py-20 lg:px-10">
             <div className="max-w-2xl">
               <p className="text-muted mb-5 text-sm font-semibold">
                 Especialistas en Honda NAVI · {BRAND.location}
@@ -282,7 +271,7 @@ export function LandingPage() {
               </div>
             </div>
           </div>
-        </section>
+        </HeroCarousel>
 
         <nav
           aria-label="Navegación de portada"
