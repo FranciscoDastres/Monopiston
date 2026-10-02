@@ -1,4 +1,4 @@
-# Skills para trabajar en Monopiston
+# Skills para trabajar en Taller Mono Pistón
 
 Instaladas en Codex el 1 de octubre de 2026. Estarán disponibles en el siguiente
 turno. Son herramientas de desarrollo y no dependencias de la aplicación.
@@ -19,3 +19,9 @@ skill universalmente mejor para todos los productos.
 En este producto, mantener los módulos existentes, medir antes de escalar y
 verificar los flujos de reserva y pago antes de publicar. Las instrucciones del
 usuario y del proyecto tienen prioridad sobre las recomendaciones de las skills.
+
+El 2 de octubre de 2026 se agregó `vercel-react-best-practices` desde el
+[repositorio oficial de Vercel](https://github.com/vercel-labs/agent-skills/tree/main/skills/react-best-practices)
+para revisar rendimiento de React y tamaño del bundle. Se aplican las reglas
+compatibles con React/Vite. Los perfiles de modelos y la instalación en otro
+equipo se describen en [Codex: modelos y skills](codex.md).
