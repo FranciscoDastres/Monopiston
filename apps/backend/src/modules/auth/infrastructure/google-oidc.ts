@@ -81,7 +81,7 @@ export class GoogleOidcClient {
       displayName:
         typeof claims.name === 'string' && claims.name.trim()
           ? claims.name
-          : (claims.email.split('@')[0] ?? 'Cliente D Racing Pro'),
+          : (claims.email.split('@')[0] ?? 'Cliente Monopiston'),
       email: claims.email,
       subject: claims.sub,
     };

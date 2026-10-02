@@ -3,7 +3,7 @@ import { z } from 'zod';
 export type ServiceStatus = 'ok' | 'degraded';
 
 export interface HealthResponse {
-  service: 'dracing-api';
+  service: 'monopiston-api';
   status: ServiceStatus;
   timestamp: string;
   checks?: {

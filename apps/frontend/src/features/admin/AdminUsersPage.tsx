@@ -2,7 +2,7 @@ import type {
   AdminUser,
   CreateAdminUserInput,
   UpdateUserInput,
-} from '@dracing/contracts';
+} from '@monopiston/contracts';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { useMemo, useState, type FormEvent } from 'react';
 

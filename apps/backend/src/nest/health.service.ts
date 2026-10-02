@@ -1,4 +1,4 @@
-import type { HealthResponse } from '@dracing/contracts';
+import type { HealthResponse } from '@monopiston/contracts';
 import { Inject, Injectable, Logger } from '@nestjs/common';
 
 export const HEALTH_CHECK_DATABASE = Symbol('HEALTH_CHECK_DATABASE');
@@ -16,7 +16,7 @@ export class HealthService {
 
   live(): HealthResponse {
     return {
-      service: 'dracing-api',
+      service: 'monopiston-api',
       status: 'ok',
       timestamp: new Date().toISOString(),
     };
@@ -27,7 +27,7 @@ export class HealthService {
       await this.checkDatabase();
 
       return {
-        service: 'dracing-api',
+        service: 'monopiston-api',
         status: 'ok',
         timestamp: new Date().toISOString(),
         checks: { database: 'ok' },
@@ -36,7 +36,7 @@ export class HealthService {
       this.logger.error('Database readiness check failed', error);
 
       return {
-        service: 'dracing-api',
+        service: 'monopiston-api',
         status: 'degraded',
         timestamp: new Date().toISOString(),
         checks: { database: 'degraded' },

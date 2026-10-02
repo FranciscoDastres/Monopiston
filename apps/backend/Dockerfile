@@ -16,9 +16,9 @@ COPY packages/contracts packages/contracts
 COPY packages/database packages/database
 COPY database/migrations database/migrations
 
-RUN pnpm --filter @dracing/contracts build \
-    && pnpm --filter @dracing/database build \
-    && pnpm --filter @dracing/backend build
+RUN pnpm --filter @monopiston/contracts build \
+    && pnpm --filter @monopiston/database build \
+    && pnpm --filter @monopiston/backend build
 
 FROM node:24.18.0-alpine AS runtime
 

@@ -1,4 +1,4 @@
-import type { PaymentSettings, PaymentStatusView } from '@dracing/contracts';
+import type { PaymentSettings, PaymentStatusView } from '@monopiston/contracts';
 
 import { buildApp } from '../src/app.js';
 import type { PaymentRoutesOptions } from '../src/modules/payments/presentation/routes.js';

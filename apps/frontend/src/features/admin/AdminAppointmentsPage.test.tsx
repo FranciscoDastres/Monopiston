@@ -1,4 +1,4 @@
-import type { AdminAppointment, ServiceBay } from '@dracing/contracts';
+import type { AdminAppointment, ServiceBay } from '@monopiston/contracts';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 

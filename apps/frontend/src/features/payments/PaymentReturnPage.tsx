@@ -1,7 +1,7 @@
 import type {
   PaymentInitResponse,
   PaymentStatusView,
-} from '@dracing/contracts';
+} from '@monopiston/contracts';
 import { useMutation, useQuery } from '@tanstack/react-query';
 import { useEffect, useState } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';

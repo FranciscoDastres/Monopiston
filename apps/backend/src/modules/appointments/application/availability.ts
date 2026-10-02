@@ -1,5 +1,5 @@
-import type { AvailabilitySlot } from '@dracing/contracts';
-import type { DatabaseClient } from '@dracing/database';
+import type { AvailabilitySlot } from '@monopiston/contracts';
+import type { DatabaseClient } from '@monopiston/database';
 
 import { ACTIVE_STATUSES } from './appointment-rules.js';
 import {

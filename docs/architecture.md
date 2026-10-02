@@ -8,7 +8,7 @@ producto, repositorios separados duplicarían CI, tipos y gestión de versiones 
 dar aislamiento útil.
 
 ```text
-DRacingPro/
+Monopiston/
 ├── apps/
 │   ├── frontend/
 │   │   ├── src/

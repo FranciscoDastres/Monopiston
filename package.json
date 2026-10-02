@@ -1,5 +1,5 @@
 {
-  "name": "dracing-pro",
+  "name": "monopiston",
   "version": "0.1.0",
   "private": true,
   "type": "module",
@@ -8,10 +8,10 @@
     "node": ">=24.18.0 <25"
   },
   "scripts": {
-    "dev": "pnpm build:packages && pnpm dev:free-ports && concurrently -n web,api,ngrok -c blue,green,magenta \"pnpm --filter @dracing/frontend dev\" \"pnpm --filter @dracing/backend dev\" \"pnpm tunnel\"",
+    "dev": "pnpm build:packages && pnpm dev:free-ports && concurrently -n web,api,ngrok -c blue,green,magenta \"pnpm --filter @monopiston/frontend dev\" \"pnpm --filter @monopiston/backend dev\" \"pnpm tunnel\"",
     "dev:free-ports": "fuser -k 5180/tcp 3001/tcp 4040/tcp 2>/dev/null || true",
     "tunnel": "ngrok http 3001 --url=https://meticulous-todd-nosographically.ngrok-free.dev --log=stdout",
-    "build:packages": "pnpm --filter @dracing/contracts build && pnpm --filter @dracing/database build",
+    "build:packages": "pnpm --filter @monopiston/contracts build && pnpm --filter @monopiston/database build",
     "build": "pnpm -r --if-present build",
     "lint": "eslint . --max-warnings=0",
     "typecheck": "pnpm build:packages && pnpm -r --if-present typecheck",
@@ -21,28 +21,31 @@
     "format:check": "prettier --check .",
     "db:up": "docker compose up -d postgres",
     "db:down": "docker compose down",
-    "db:generate": "pnpm --filter @dracing/database generate",
-    "db:introspect": "pnpm --filter @dracing/database introspect",
+    "db:generate": "pnpm --filter @monopiston/database generate",
+    "db:introspect": "pnpm --filter @monopiston/database introspect",
     "db:migrate": "docker compose run --rm migrate",
-    "db:migrate:deploy": "pnpm --filter @dracing/database migrate",
+    "db:migrate:deploy": "pnpm --filter @monopiston/database migrate",
     "dev:up": "docker compose up --build",
     "dev:status": "docker compose ps"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
-    "concurrently": "^10.0.3",
-    "eslint": "^10.6.0",
+    "concurrently": "^10.0.5",
+    "eslint": "^10.11.0",
     "eslint-plugin-react-hooks": "^7.1.1",
-    "eslint-plugin-react-refresh": "^0.5.3",
-    "globals": "^17.7.0",
-    "prettier": "^3.9.5",
-    "prettier-plugin-tailwindcss": "^0.8.0",
+    "eslint-plugin-react-refresh": "^0.5.7",
+    "globals": "^17.13.0",
+    "prettier": "^3.9.9",
+    "prettier-plugin-tailwindcss": "^0.8.1",
     "typescript": "^6.0.3",
-    "typescript-eslint": "^8.63.0"
+    "typescript-eslint": "^8.71.0"
   },
   "pnpm": {
     "overrides": {
-      "@hono/node-server@<1.19.13": ">=1.19.13"
+      "@hono/node-server@<1.19.13": ">=1.19.13",
+      "fastify@<5.12.2": "^5.12.5",
+      "@prisma/config>deepmerge-ts": "^8.0.0",
+      "prisma>mysql2": "^3.22.0"
     }
   }
 }

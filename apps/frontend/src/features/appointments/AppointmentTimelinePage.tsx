@@ -1,4 +1,4 @@
-import type { AppointmentTimeline } from '@dracing/contracts';
+import type { AppointmentTimeline } from '@monopiston/contracts';
 import { useQuery } from '@tanstack/react-query';
 import { Link, useParams } from 'react-router-dom';
 

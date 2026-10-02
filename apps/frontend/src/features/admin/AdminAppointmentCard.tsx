@@ -1,4 +1,4 @@
-import type { AdminAppointment, Appointment } from '@dracing/contracts';
+import type { AdminAppointment, Appointment } from '@monopiston/contracts';
 
 import { Badge } from '../../components/ui/Badge';
 import { Button } from '../../components/ui/Button';
@@ -148,7 +148,7 @@ function toWhatsAppUrl(
 ): string {
   const rawDigits = phone.replace(/\D/g, '').replace(/^0+/, '');
   const digits = rawDigits.length === 9 ? `56${rawDigits}` : rawDigits;
-  const message = `Hola ${customerName}, te contactamos de D Racing Pro por tu cita del ${agendaDateFormatter.format(new Date(startsAt))}.`;
+  const message = `Hola ${customerName}, te contactamos de Monopiston por tu cita del ${agendaDateFormatter.format(new Date(startsAt))}.`;
   return `https://wa.me/${digits}?text=${encodeURIComponent(message)}`;
 }
 

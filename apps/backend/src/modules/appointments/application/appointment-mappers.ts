@@ -3,7 +3,7 @@ import type {
   Appointment,
   CustomerMotorcycleUpdate,
   ServiceBay,
-} from '@dracing/contracts';
+} from '@monopiston/contracts';
 
 export const appointmentInclude = {
   appointment_services: true,

@@ -15,14 +15,14 @@ const legalLinks = [
  */
 export function Footer() {
   return (
-    <footer className="border-t border-white/10 bg-[#0a0a0a] text-[#8f8f8f]">
+    <footer className="bg-lead-deep text-muted border-t border-white/10">
       <div className="mx-auto max-w-7xl px-5 py-14 sm:px-6 lg:px-10">
         <div className="flex flex-col items-center gap-6 text-center">
           <a
             className="font-display text-xl font-black tracking-[0.12em] text-white uppercase"
             href="#top"
           >
-            D Racing <span className="text-primary">Pro</span>
+            Monopiston
           </a>
           <nav className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-[11px] font-semibold tracking-[0.08em] uppercase">
             {legalLinks.map((link, index) => (
@@ -73,9 +73,9 @@ export function Footer() {
           </div>
         </div>
 
-        <p className="mt-12 border-t border-white/10 pt-8 text-center text-[11px] text-[#6a6a6a]">
-          © {new Date().getFullYear()} D Racing Pro · Servicio técnico Honda
-          NAVI · Santiago, Chile.
+        <p className="text-muted mt-12 border-t border-white/10 pt-8 text-center text-[11px]">
+          © {new Date().getFullYear()} Monopiston · Servicio técnico Honda NAVI
+          · Santiago, Chile.
         </p>
       </div>
     </footer>

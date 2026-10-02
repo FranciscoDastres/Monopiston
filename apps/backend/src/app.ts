@@ -106,7 +106,8 @@ export async function buildApp({
   const adapter = new FastifyAdapter({
     disableRequestLogging: false,
     logger: resolveLoggerOptions(logger),
-    trustProxy,
+    // Fastify 5.12 fails closed for numeric hop counts; use an IP/CIDR allowlist.
+    trustProxy: typeof trustProxy === 'number' ? false : trustProxy,
   });
   const app = await NestFactory.create<NestFastifyApplication>(
     AppModule.register({ checkDatabase }),

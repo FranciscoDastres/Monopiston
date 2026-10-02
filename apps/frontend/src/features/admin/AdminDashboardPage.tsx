@@ -1,4 +1,4 @@
-import type { AdminAppointment, AdminMetrics } from '@dracing/contracts';
+import type { AdminAppointment, AdminMetrics } from '@monopiston/contracts';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { lazy, Suspense, useMemo, useState } from 'react';
 

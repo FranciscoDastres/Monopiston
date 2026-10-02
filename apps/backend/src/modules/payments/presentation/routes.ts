@@ -1,4 +1,4 @@
-import { UpdatePaymentSettingsSchema } from '@dracing/contracts';
+import { UpdatePaymentSettingsSchema } from '@monopiston/contracts';
 import type { FastifyPluginAsync, FastifyReply, FastifyRequest } from 'fastify';
 import { z } from 'zod';
 

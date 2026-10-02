@@ -2,7 +2,7 @@ import type {
   AdminLoginInput,
   CurrentUser,
   UpdateProfileInput,
-} from '@dracing/contracts';
+} from '@monopiston/contracts';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { type PropsWithChildren, useMemo } from 'react';
 

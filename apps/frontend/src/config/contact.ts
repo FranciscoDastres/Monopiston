@@ -14,7 +14,7 @@ export const CONTACT = {
     weekday: 'Lun a Vie · 09:30–18:30',
   },
   /** Contact email for inquiries and data requests (placeholder). */
-  email: 'contacto@dracingpro.cl',
+  email: 'contacto@monopiston.cl',
   /** Phone shown under "Contáctanos". */
   phoneDisplay: '+56 9 7319 6187',
   /**

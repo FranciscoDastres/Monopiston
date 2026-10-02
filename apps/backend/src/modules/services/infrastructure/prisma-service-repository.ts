@@ -1,5 +1,5 @@
-import type { Service } from '@dracing/contracts';
-import type { DatabaseClient } from '@dracing/database';
+import type { Service } from '@monopiston/contracts';
+import type { DatabaseClient } from '@monopiston/database';
 
 import type { ServiceRepository } from '../domain/service-repository.js';
 

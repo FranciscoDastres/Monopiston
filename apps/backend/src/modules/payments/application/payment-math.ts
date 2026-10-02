@@ -1,4 +1,4 @@
-import type { PaymentSettings } from '@dracing/contracts';
+import type { PaymentSettings } from '@monopiston/contracts';
 
 const IVA_RATE = 0.19;
 

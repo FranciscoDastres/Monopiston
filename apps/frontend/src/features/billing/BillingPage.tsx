@@ -1,4 +1,4 @@
-import type { Invoice } from '@dracing/contracts';
+import type { Invoice } from '@monopiston/contracts';
 import { useQuery } from '@tanstack/react-query';
 import {
   createColumnHelper,
