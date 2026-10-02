@@ -32,7 +32,7 @@ const paymentService = new PaymentService(
   flowClient,
   {
     currency: 'CLP',
-    subjectPrefix: 'Reserva cita Monopiston',
+    subjectPrefix: 'Reserva cita Taller Mono Pistón',
     urlConfirmation:
       environment.FLOW_CONFIRM_URL ??
       `${environment.API_ORIGIN}/v1/payments/flow/confirm`,

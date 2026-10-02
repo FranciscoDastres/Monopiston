@@ -8,6 +8,8 @@ import type {
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { useEffect, useMemo, useState } from 'react';
 
+import { Button } from '../../components/ui/Button';
+import { Modal } from '../../components/ui/Modal';
 import { apiClient } from '../../lib/api-client';
 import { useAuth } from '../auth/auth-context';
 import { AppointmentCalendar } from './AppointmentCalendar';
@@ -51,7 +53,7 @@ export function BookingModal({ onClose, open }: BookingModalProps) {
 
   // Sign in transparently in local development when there is no session yet.
   useEffect(() => {
-    if (open && !user && !authLoading) {
+    if (import.meta.env.DEV && open && !user && !authLoading) {
       void signInAsDeveloper().catch(() => undefined);
     }
   }, [open, user, authLoading, signInAsDeveloper]);
@@ -157,6 +159,33 @@ export function BookingModal({ onClose, open }: BookingModalProps) {
   };
 
   const preparingSession = !user || (motorcycles.isSuccess && !motorcycleId);
+
+  // Production customers enter through Google; never call the development endpoint.
+  if (!user && !authLoading && !import.meta.env.DEV) {
+    return (
+      <Modal
+        onClose={onClose}
+        open={open}
+        title="Agendar una cita"
+        eyebrow="Tu Honda NAVI"
+      >
+        <p className="text-muted text-sm">
+          Accede con tu cuenta de Google para reservar y conservar el historial
+          de tu moto.
+        </p>
+        <Button
+          className="mt-6 w-full"
+          onClick={() =>
+            window.location.assign(
+              `${import.meta.env.VITE_API_URL ?? ''}/v1/auth/google?returnTo=/app/appointments`,
+            )
+          }
+        >
+          Acceder con Google
+        </Button>
+      </Modal>
+    );
+  }
 
   return (
     <div

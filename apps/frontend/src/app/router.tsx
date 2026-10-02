@@ -11,6 +11,11 @@ import { ProtectedRoute } from './ProtectedRoute';
 const AppShell = lazy(() =>
   import('./AppShell').then((m) => ({ default: m.AppShell })),
 );
+const AccountPage = lazy(() =>
+  import('../features/account/AccountPage').then((m) => ({
+    default: m.AccountPage,
+  })),
+);
 const DashboardPage = lazy(() =>
   import('../features/dashboard/DashboardPage').then((m) => ({
     default: m.DashboardPage,
@@ -86,6 +91,7 @@ export const router = createBrowserRouter([
         path: '/app',
         children: [
           { element: <DashboardPage />, index: true },
+          { element: <AccountPage />, path: 'account' },
           { element: <AppointmentsPage />, path: 'appointments' },
           { element: <AppointmentTimelinePage />, path: 'appointments/:id' },
           { element: <ServiceHistoryPage />, path: 'history' },

@@ -17,15 +17,15 @@
 }
 
 @theme {
-  --color-background: #454545;
-  --color-surface: #505050;
+  --color-background: #242424;
+  --color-surface: #303030;
   --color-foreground: #f5f5f5;
   --color-muted: #d0d0d0;
   --color-primary: #df001b;
   --color-accent: #ff959d;
-  --color-lead-deep: #353535;
-  --color-lead-nav: #3b3b3b;
-  --color-lead-hover: #5a5a5a;
+  --color-lead-deep: #191919;
+  --color-lead-nav: #202020;
+  --color-lead-hover: #3c3c3c;
   --color-success: #32d583;
   --color-warning: #fdb022;
   --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
@@ -33,6 +33,7 @@
 }
 
 :root {
+  --landing-header-height: 130px;
   color-scheme: dark;
   font-family: var(--font-sans);
   font-synthesis: none;
@@ -42,7 +43,7 @@
 html {
   background: var(--color-background);
   scroll-behavior: smooth;
-  scroll-padding-top: 188px;
+  scroll-padding-top: calc(var(--landing-header-height) + 72px);
 }
 
 body {
@@ -172,7 +173,11 @@ button,
 
 .landing-hero {
   background: var(--color-background);
-  min-height: clamp(34rem, calc(100svh - 11rem), 42rem);
+  min-height: clamp(
+    34rem,
+    calc(100svh - var(--landing-header-height) - 3.5rem),
+    42rem
+  );
 }
 
 .landing-hero-content {
@@ -182,14 +187,27 @@ button,
 .landing-hero-overlay {
   background: linear-gradient(
     90deg,
-    rgb(53 53 53 / 94%) 0%,
-    rgb(53 53 53 / 80%) 28%,
-    rgb(53 53 53 / 28%) 52%,
+    rgb(25 25 25 / 94%) 0%,
+    rgb(25 25 25 / 80%) 28%,
+    rgb(25 25 25 / 28%) 52%,
     transparent 76%
   );
 }
 
+.landing-hero-image {
+  object-position: 62% center;
+}
+
+@media (min-width: 640px) {
+  :root {
+    --landing-header-height: 138px;
+  }
+}
+
 @media (max-width: 639px) {
+  .landing-hero-image {
+    object-position: 62% top;
+  }
   .landing-hero {
     min-height: 44rem;
   }
@@ -197,10 +215,10 @@ button,
   .landing-hero-overlay {
     background: linear-gradient(
       0deg,
-      rgb(53 53 53 / 100%) 0%,
-      rgb(53 53 53 / 94%) 33%,
-      rgb(53 53 53 / 55%) 57%,
-      rgb(53 53 53 / 8%) 85%
+      rgb(25 25 25 / 100%) 0%,
+      rgb(25 25 25 / 94%) 33%,
+      rgb(25 25 25 / 55%) 57%,
+      rgb(25 25 25 / 8%) 85%
     );
   }
 }

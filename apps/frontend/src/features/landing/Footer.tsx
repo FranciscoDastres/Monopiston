@@ -1,5 +1,8 @@
 import { Link } from 'react-router-dom';
 
+import { BrandLogo } from '../../components/brand/BrandLogo';
+import { Icon } from '../../components/ui/Icon';
+import { BRAND } from '../../config/brand';
 import { CONTACT, whatsappLink } from '../../config/contact';
 
 const legalLinks = [
@@ -18,11 +21,8 @@ export function Footer() {
     <footer className="bg-lead-deep text-muted border-t border-white/10">
       <div className="mx-auto max-w-7xl px-5 py-14 sm:px-6 lg:px-10">
         <div className="flex flex-col items-center gap-6 text-center">
-          <a
-            className="font-display text-xl font-black tracking-[0.12em] text-white uppercase"
-            href="#top"
-          >
-            Monopiston
+          <a aria-label="Inicio — Taller Mono Pistón" href="/">
+            <BrandLogo size="lg" stacked />
           </a>
           <nav className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-[11px] font-semibold tracking-[0.08em] uppercase">
             {legalLinks.map((link, index) => (
@@ -42,7 +42,7 @@ export function Footer() {
 
         <div className="mt-12 grid gap-8 border-t border-white/10 pt-10 sm:grid-cols-2 sm:gap-12">
           <div className="flex items-start gap-4 sm:justify-end sm:text-right">
-            <PhoneIcon />
+            <Icon className="text-primary mt-1 size-6 shrink-0" name="phone" />
             <div>
               <p className="text-[11px] font-semibold tracking-[0.14em] text-white uppercase">
                 Contáctenos
@@ -74,29 +74,10 @@ export function Footer() {
         </div>
 
         <p className="text-muted mt-12 border-t border-white/10 pt-8 text-center text-[11px]">
-          © {new Date().getFullYear()} Monopiston · Servicio técnico Honda NAVI
-          · Santiago, Chile.
+          © {new Date().getFullYear()} {BRAND.name} · Servicio técnico Honda
+          NAVI · {BRAND.location}, Chile.
         </p>
       </div>
     </footer>
-  );
-}
-
-function PhoneIcon() {
-  return (
-    <svg
-      aria-hidden="true"
-      className="text-primary mt-1 shrink-0"
-      fill="none"
-      height="22"
-      stroke="currentColor"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      strokeWidth="1.8"
-      viewBox="0 0 24 24"
-      width="22"
-    >
-      <path d="M5 4h3l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v3a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2Z" />
-    </svg>
   );
 }

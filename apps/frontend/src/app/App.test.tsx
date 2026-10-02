@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 
 import { App } from './App';
 
@@ -37,7 +37,23 @@ describe('App', () => {
     expect(
       screen.getAllByRole('link', { name: 'Agendar una cita' })[0],
     ).toHaveAttribute('href', '/v1/auth/google?returnTo=/app/appointments');
-    expect(await screen.findByText('Sistema operativo')).toBeInTheDocument();
+    expect(
+      screen.getAllByRole('img', { name: 'Taller Mono Pistón' }),
+    ).toHaveLength(2);
+    expect(fetch).not.toHaveBeenCalledWith(
+      expect.stringContaining('/health/'),
+      expect.anything(),
+    );
+
+    // These dialogs are now lazy: opening one must preserve the existing entry point.
+    fireEvent.click(screen.getByRole('link', { name: 'Mi cuenta' }));
+    expect(
+      await screen.findByRole('dialog', { name: 'Iniciar sesión' }),
+    ).toBeInTheDocument();
+    fireEvent.click(screen.getByRole('button', { name: 'Cerrar' }));
+    await waitFor(() =>
+      expect(screen.queryByRole('dialog')).not.toBeInTheDocument(),
+    );
 
     vi.unstubAllGlobals();
   });

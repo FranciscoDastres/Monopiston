@@ -148,7 +148,7 @@ function toWhatsAppUrl(
 ): string {
   const rawDigits = phone.replace(/\D/g, '').replace(/^0+/, '');
   const digits = rawDigits.length === 9 ? `56${rawDigits}` : rawDigits;
-  const message = `Hola ${customerName}, te contactamos de Monopiston por tu cita del ${agendaDateFormatter.format(new Date(startsAt))}.`;
+  const message = `Hola ${customerName}, te contactamos de Taller Mono Pistón por tu cita del ${agendaDateFormatter.format(new Date(startsAt))}.`;
   return `https://wa.me/${digits}?text=${encodeURIComponent(message)}`;
 }
 

@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { NavLink, Outlet, useNavigate } from 'react-router-dom';
 
+import { BrandLogo } from '../components/brand/BrandLogo';
 import { Button } from '../components/ui/Button';
 import { Icon, type IconName } from '../components/ui/Icon';
 import { Modal } from '../components/ui/Modal';
@@ -8,6 +9,7 @@ import { useAuth } from '../features/auth/auth-context';
 
 interface NavItem {
   label: string;
+  mobileLabel?: string;
   to: string;
   icon: IconName;
   end?: boolean;
@@ -23,10 +25,20 @@ const customerNav: NavItem[] = [
 
 const adminNav: NavItem[] = [
   { end: true, icon: 'chart', label: 'Panel', to: '/app/admin' },
-  { icon: 'calendar', label: 'Agenda taller', to: '/app/admin/agenda' },
+  {
+    icon: 'calendar',
+    label: 'Agenda taller',
+    mobileLabel: 'Agenda',
+    to: '/app/admin/agenda',
+  },
   { icon: 'users', label: 'Usuarios', to: '/app/admin/users' },
   { icon: 'tool', label: 'Servicios', to: '/app/admin/services' },
-  { icon: 'settings', label: 'Configuración', to: '/app/admin/settings' },
+  {
+    icon: 'settings',
+    label: 'Configuración',
+    mobileLabel: 'Ajustes',
+    to: '/app/admin/settings',
+  },
 ];
 
 export function AppShell() {
@@ -69,18 +81,13 @@ export function AppShell() {
             className="flex items-center gap-3"
             to="/"
           >
-            <span className="bg-primary shadow-primary/20 grid size-9 place-items-center rounded-lg text-xs font-black text-white italic shadow-lg">
-              M
-            </span>
-            <span className="hidden text-sm font-bold tracking-[0.18em] uppercase sm:block">
-              Monopiston
-            </span>
+            <BrandLogo size="sm" />
           </NavLink>
 
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2 sm:gap-3">
             {/* Return to the panel matching the active session. */}
             <NavLink
-              className="text-muted hover:border-primary/50 hover:text-foreground flex items-center gap-2 rounded-lg border border-white/10 px-3 py-2 text-xs font-semibold transition"
+              className="text-muted hover:border-primary/50 hover:text-foreground hidden items-center gap-2 rounded-lg border border-white/10 px-3 py-2 text-xs font-semibold transition sm:flex"
               to={isAdmin ? '/app/admin' : '/app'}
             >
               <Icon className="size-4" name="chart" />
@@ -88,9 +95,14 @@ export function AppShell() {
                 {isAdmin ? 'Panel admin' : 'Mi panel'}
               </span>
             </NavLink>
-            <div className="hidden items-center gap-3 sm:flex">
+            <div className="hidden items-center gap-3 lg:flex">
               <div className="text-right">
-                <p className="text-sm font-semibold">{user?.displayName}</p>
+                <NavLink
+                  className="hover:text-accent text-sm font-semibold"
+                  to="/app/account"
+                >
+                  {user?.displayName}
+                </NavLink>
                 <p className="text-muted text-xs">{user?.email}</p>
               </div>
               <span
@@ -103,11 +115,18 @@ export function AppShell() {
                 {initials}
               </span>
             </div>
+            <NavLink
+              aria-label="Mi cuenta"
+              className="text-muted hover:text-foreground grid size-9 place-items-center rounded-lg border border-white/10 lg:hidden"
+              to="/app/account"
+            >
+              <Icon className="size-4" name="user" />
+            </NavLink>
             {/* Closing every session is destructive (it ends this one too), so
                 it lives behind a confirmation rather than next to plain "Salir". */}
             <button
               aria-label="Cerrar sesión en todos los dispositivos"
-              className="text-muted hover:border-primary/50 hover:text-foreground flex items-center gap-2 rounded-lg border border-white/10 px-3 py-2 text-xs font-semibold transition"
+              className="text-muted hover:border-primary/50 hover:text-foreground flex items-center gap-2 rounded-lg border border-white/10 px-2 py-2 text-xs font-semibold transition sm:px-3"
               onClick={() => setLogoutAllOpen(true)}
               title="Cerrar sesión en todos los dispositivos"
               type="button"
@@ -159,7 +178,7 @@ export function AppShell() {
           aria-label="Navegación principal"
           className="bg-background/92 fixed right-0 bottom-0 left-0 z-40 grid grid-cols-5 gap-1 border-t border-white/10 px-2 py-2 backdrop-blur-xl lg:sticky lg:top-[65px] lg:z-auto lg:flex lg:h-[calc(100vh-65px)] lg:flex-col lg:gap-1 lg:overflow-y-auto lg:border-t-0 lg:border-r lg:px-4 lg:py-6"
         >
-          <p className="text-muted hidden px-3 pb-2 text-[0.62rem] font-semibold tracking-[0.18em] uppercase lg:block">
+          <p className="text-muted hidden px-3 pb-2 text-[0.68rem] font-semibold tracking-[0.18em] uppercase lg:block">
             {isAdmin ? 'Centro de operaciones' : 'Mi taller'}
           </p>
           {(isAdmin ? adminNav : customerNav).map((item) => (
@@ -188,7 +207,7 @@ function NavItemLink({ item }: { item: NavItem }) {
   return (
     <NavLink
       className={({ isActive }) =>
-        `flex min-w-0 flex-col items-center gap-1 rounded-lg px-1 py-1.5 text-[0.62rem] font-semibold whitespace-nowrap transition-all lg:flex-row lg:gap-3 lg:px-3 lg:py-2.5 lg:text-sm ${
+        `flex min-w-0 flex-col items-center gap-1 rounded-lg px-1 py-1.5 text-[0.68rem] font-semibold whitespace-nowrap transition-all lg:flex-row lg:gap-3 lg:px-3 lg:py-2.5 lg:text-sm ${
           isActive
             ? 'bg-primary/12 text-foreground shadow-[inset_2px_0_0_var(--color-primary)]'
             : 'text-muted hover:text-foreground hover:bg-white/[0.04]'
@@ -198,7 +217,10 @@ function NavItemLink({ item }: { item: NavItem }) {
       to={item.to}
     >
       <Icon className="size-4.5 shrink-0" name={item.icon} />
-      <span className="max-w-full truncate">{item.label}</span>
+      <span className="max-w-full truncate">
+        <span className="lg:hidden">{item.mobileLabel ?? item.label}</span>
+        <span className="hidden lg:inline">{item.label}</span>
+      </span>
     </NavLink>
   );
 }

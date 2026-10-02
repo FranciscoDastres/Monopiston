@@ -1,5 +1,6 @@
 import { Link, Navigate, useParams } from 'react-router-dom';
 
+import { BrandLogo } from '../../components/brand/BrandLogo';
 import { LEGAL_DISCLAIMER, legalDocs } from './legal-docs';
 
 export function LegalPage() {
@@ -11,11 +12,8 @@ export function LegalPage() {
     <div className="bg-background text-foreground min-h-screen">
       <header className="border-b border-white/10">
         <div className="mx-auto flex max-w-3xl items-center justify-between px-5 py-5 sm:px-6">
-          <Link
-            className="font-display text-sm font-bold tracking-[0.12em] text-white uppercase"
-            to="/"
-          >
-            Monopiston
+          <Link aria-label="Inicio — Taller Mono Pistón" to="/">
+            <BrandLogo size="sm" />
           </Link>
           <Link className="text-muted hover:text-foreground text-sm" to="/">
             ← Volver al inicio

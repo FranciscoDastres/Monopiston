@@ -5,7 +5,7 @@ export class ApiController {
   @Get()
   info() {
     return {
-      name: 'Monopiston API',
+      name: 'Taller Mono Pistón API',
       version: '0.1.0',
     };
   }

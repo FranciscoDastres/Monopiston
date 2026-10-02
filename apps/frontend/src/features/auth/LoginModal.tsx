@@ -1,8 +1,9 @@
 import { useState, type FormEvent } from 'react';
 
+import { Modal } from '../../components/ui/Modal';
 import { useAuth } from './auth-context';
 
-const GOOGLE_LOGIN_URL = '/v1/auth/google?returnTo=/app';
+const GOOGLE_LOGIN_URL = `${import.meta.env.VITE_API_URL ?? ''}/v1/auth/google?returnTo=/app`;
 
 interface LoginModalProps {
   onClose: () => void;
@@ -36,90 +37,71 @@ export function LoginModal({ onClose, open }: LoginModalProps) {
   };
 
   return (
-    <div
-      aria-label="Iniciar sesión"
-      aria-modal="true"
-      className="fixed inset-0 z-[100] flex items-center justify-center overflow-y-auto bg-black/70 p-4 backdrop-blur-sm"
-      onClick={onClose}
-      role="dialog"
+    <Modal
+      eyebrow="Tu cuenta"
+      onClose={onClose}
+      open={open}
+      title="Iniciar sesión"
     >
-      <div
-        className="bg-surface relative w-full max-w-md rounded-3xl border border-white/10 p-6 shadow-2xl sm:p-8"
-        onClick={(event) => event.stopPropagation()}
+      <p className="text-muted mt-2 text-sm">
+        Clientes acceden con Google. La cuenta local está reservada para la
+        administración del taller.
+      </p>
+
+      <button
+        className="bg-lead-hover text-foreground mt-6 flex w-full items-center justify-center gap-3 rounded-xl border border-white/20 px-4 py-3 text-sm font-bold transition hover:brightness-110"
+        onClick={() => window.location.assign(GOOGLE_LOGIN_URL)}
+        type="button"
       >
-        <button
-          aria-label="Cerrar"
-          className="text-muted hover:border-primary hover:text-foreground absolute top-5 right-5 grid size-10 place-items-center rounded-full border border-white/10 text-lg transition"
-          onClick={onClose}
-          type="button"
-        >
-          ✕
-        </button>
+        <GoogleMark />
+        Acceder con Google
+      </button>
 
-        <p className="text-accent text-sm font-semibold">Tu cuenta</p>
-        <h2 className="mt-1 text-2xl font-black tracking-tight">
-          Iniciar sesión
-        </h2>
-        <p className="text-muted mt-2 text-sm">
-          Clientes acceden con Google. La cuenta local está reservada para la
-          administración del taller.
-        </p>
-
-        <button
-          className="bg-lead-hover text-foreground mt-6 flex w-full items-center justify-center gap-3 rounded-xl border border-white/20 px-4 py-3 text-sm font-bold transition hover:brightness-110"
-          onClick={() => window.location.assign(GOOGLE_LOGIN_URL)}
-          type="button"
-        >
-          <GoogleMark />
-          Acceder con Google
-        </button>
-
-        <div className="text-muted my-6 flex items-center gap-3 text-[10px] font-semibold tracking-[0.12em] uppercase">
-          <span className="h-px flex-1 bg-white/10" />o
-          <span className="h-px flex-1 bg-white/10" />
-        </div>
-
-        <form className="space-y-4" onSubmit={submit}>
-          <p className="text-sm font-semibold">Acceso administrador</p>
-          <label className="block">
-            <span className="text-sm font-semibold">Correo</span>
-            <input
-              autoComplete="email"
-              className="bg-background focus:border-accent mt-2 w-full rounded-lg border border-white/10 px-3 py-3 text-sm outline-none"
-              onChange={(event) => setEmail(event.target.value)}
-              placeholder="tucorreo@ejemplo.com"
-              required
-              type="email"
-              value={email}
-            />
-          </label>
-          <label className="block">
-            <span className="text-sm font-semibold">Contraseña</span>
-            <input
-              autoComplete="current-password"
-              className="bg-background focus:border-accent mt-2 w-full rounded-lg border border-white/10 px-3 py-3 text-sm outline-none"
-              onChange={(event) => setPassword(event.target.value)}
-              placeholder="••••••••"
-              required
-              type="password"
-              value={password}
-            />
-          </label>
-          <button
-            className="bg-primary w-full rounded-xl px-5 py-3 text-sm font-bold text-white transition hover:brightness-110 disabled:opacity-40"
-            disabled={busy}
-            type="submit"
-          >
-            {busy ? 'Entrando…' : 'Iniciar sesión'}
-          </button>
-          {error && (
-            <p className="text-sm text-red-400" role="alert">
-              Correo o contraseña incorrectos.
-            </p>
-          )}
-        </form>
+      <div className="text-muted my-6 flex items-center gap-3 text-[10px] font-semibold tracking-[0.12em] uppercase">
+        <span className="h-px flex-1 bg-white/10" />o
+        <span className="h-px flex-1 bg-white/10" />
       </div>
-    </div>
+
+      <form className="space-y-4" onSubmit={submit}>
+        <p className="text-sm font-semibold">Acceso administrador</p>
+        <label className="block">
+          <span className="text-sm font-semibold">Correo</span>
+          <input
+            autoComplete="email"
+            className="bg-background focus:border-accent mt-2 w-full rounded-lg border border-white/10 px-3 py-3 text-sm outline-none"
+            onChange={(event) => setEmail(event.target.value)}
+            placeholder="tucorreo@ejemplo.com"
+            required
+            type="email"
+            value={email}
+          />
+        </label>
+        <label className="block">
+          <span className="text-sm font-semibold">Contraseña</span>
+          <input
+            autoComplete="current-password"
+            className="bg-background focus:border-accent mt-2 w-full rounded-lg border border-white/10 px-3 py-3 text-sm outline-none"
+            onChange={(event) => setPassword(event.target.value)}
+            placeholder="••••••••"
+            required
+            type="password"
+            value={password}
+          />
+        </label>
+        <button
+          className="bg-primary w-full rounded-xl px-5 py-3 text-sm font-bold text-white transition hover:brightness-110 disabled:opacity-40"
+          disabled={busy}
+          type="submit"
+        >
+          {busy ? 'Entrando…' : 'Iniciar sesión'}
+        </button>
+        {error && (
+          <p className="text-sm text-red-400" role="alert">
+            Correo o contraseña incorrectos.
+          </p>
+        )}
+      </form>
+    </Modal>
   );
 }
 

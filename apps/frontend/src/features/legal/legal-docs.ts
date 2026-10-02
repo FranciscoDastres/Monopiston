@@ -1,6 +1,6 @@
 import { CONTACT } from '../../config/contact';
 
-export interface LegalSection {
+interface LegalSection {
   body: string[];
   heading: string;
 }
@@ -22,12 +22,12 @@ const UPDATED = 'Junio 2026';
 export const LEGAL_DISCLAIMER =
   'Este documento es una plantilla referencial alineada con la normativa chilena vigente. No constituye asesoría legal y debe ser revisado por un abogado y completado con los datos de la empresa (razón social y RUT) antes de su uso oficial.';
 
-const IDENTIFICACION = `Monopiston es un taller de servicio técnico de motocicletas Honda NAVI, actualmente en formación, con domicilio en ${CONTACT.address.street}, ${CONTACT.address.area}, Chile. [Completar razón social y RUT]. Contacto: ${CONTACT.phoneDisplay} · ${CONTACT.email}.`;
+const IDENTIFICACION = `Taller Mono Pistón es un taller de servicio técnico de motocicletas Honda NAVI, actualmente en formación, con domicilio en ${CONTACT.address.street}, ${CONTACT.address.area}, Chile. [Completar razón social y RUT]. Contacto: ${CONTACT.phoneDisplay} · ${CONTACT.email}.`;
 
 export const legalDocs: Record<string, LegalDoc> = {
   'bases-legales': {
     intro:
-      'Condiciones generales aplicables al sitio, a los servicios y a eventuales promociones de Monopiston.',
+      'Condiciones generales aplicables al sitio, a los servicios y a eventuales promociones de Taller Mono Pistón.',
     sections: [
       { body: [IDENTIFICACION], heading: '1. Identificación' },
       {
@@ -45,7 +45,7 @@ export const legalDocs: Record<string, LegalDoc> = {
       },
       {
         body: [
-          'Monopiston podrá modificar estas bases y las condiciones del sitio en cualquier momento. Las modificaciones rigen desde su publicación.',
+          'Taller Mono Pistón podrá modificar estas bases y las condiciones del sitio en cualquier momento. Las modificaciones rigen desde su publicación.',
         ],
         heading: '4. Vigencia y modificaciones',
       },
@@ -159,7 +159,7 @@ export const legalDocs: Record<string, LegalDoc> = {
       },
       {
         body: [
-          'El cliente declara ser propietario de la motocicleta o estar autorizado para encargar su servicio. Monopiston no responde por objetos de valor dejados en la moto.',
+          'El cliente declara ser propietario de la motocicleta o estar autorizado para encargar su servicio. Taller Mono Pistón no responde por objetos de valor dejados en la moto.',
         ],
         heading: '6. Responsabilidad',
       },
