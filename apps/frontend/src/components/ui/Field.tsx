@@ -1,8 +1,4 @@
-import {
-  type InputHTMLAttributes,
-  type ReactNode,
-  type SelectHTMLAttributes,
-} from 'react';
+import { type InputHTMLAttributes, type ReactNode } from 'react';
 
 const controlClass =
   'w-full rounded-xl border border-white/10 bg-background px-3.5 py-2.5 text-sm text-foreground placeholder:text-muted/70 transition focus:border-accent focus:outline-none disabled:opacity-50';
@@ -40,16 +36,4 @@ export function Input({
   ...rest
 }: InputHTMLAttributes<HTMLInputElement>) {
   return <input className={`${controlClass} ${className}`} {...rest} />;
-}
-
-export function Select({
-  className = '',
-  children,
-  ...rest
-}: SelectHTMLAttributes<HTMLSelectElement>) {
-  return (
-    <select className={`${controlClass} ${className}`} {...rest}>
-      {children}
-    </select>
-  );
 }

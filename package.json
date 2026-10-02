@@ -26,7 +26,8 @@
     "db:migrate": "docker compose run --rm migrate",
     "db:migrate:deploy": "pnpm --filter @monopiston/database migrate",
     "dev:up": "docker compose up --build",
-    "dev:status": "docker compose ps"
+    "dev:status": "docker compose ps",
+    "check:unused": "pnpm dlx knip@6.39.0"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",

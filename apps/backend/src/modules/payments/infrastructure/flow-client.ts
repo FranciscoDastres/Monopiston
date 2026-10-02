@@ -38,6 +38,7 @@ export function isPaidFlowStatus(status: number): boolean {
 // Flow signs requests by concatenating the parameters sorted by name as
 // "name1value1name2value2..." and producing an HMAC-SHA256 hex digest with the
 // secret key. The signature travels in the `s` parameter.
+/** @testonly Exported to verify Flow signature compatibility directly. */
 export function signFlowParams(
   params: Record<string, string>,
   secretKey: string,
@@ -49,7 +50,7 @@ export function signFlowParams(
   return createHmac('sha256', secretKey).update(toSign).digest('hex');
 }
 
-export class FlowError extends Error {}
+class FlowError extends Error {}
 
 // Flow does not sign its JSON responses, so the integrity of getStatus rests on
 // TLS. Refuse a plain-http apiBase (which a MITM could use to forge a "paid"

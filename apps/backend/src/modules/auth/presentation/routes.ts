@@ -12,7 +12,7 @@ import type {
   OAuthFlowState,
 } from '../infrastructure/google-oidc.js';
 
-export const SESSION_COOKIE = 'drp_session';
+const SESSION_COOKIE = 'drp_session';
 const OAUTH_FLOW_COOKIE = 'drp_oauth_flow';
 const OAUTH_FLOW_TTL_SECONDS = 10 * 60;
 
