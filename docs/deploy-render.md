@@ -97,6 +97,18 @@ ni respuestas HTTP.
 
 ## Verificación post-deploy
 
+Si el arranque falla con `tenant/user ... not found` (`XX000`), el pooler no
+reconoce la combinación de host y usuario de `DATABASE_URL`. Copiar de nuevo
+la cadena completa de **Supabase → Connect → Session pooler** y reemplazarla
+en **Render → Environment → DATABASE_URL**. Conservar el host exacto (incluido
+`aws-0`, `aws-1`, etc.), el usuario `postgres.<project-ref>` y el puerto `5432`;
+no reconstruir el host a partir de la región. Reemplazar solo el marcador de
+contraseña, codificando los caracteres especiales para una URL, y conservar
+los parámetros SSL descritos arriba. Guardar y redesplegar el servicio existente.
+Cambiar `.env` local no cambia las variables de Render.
+
+Referencia: [Supabase: Tenant or user not found](https://supabase.com/docs/guides/troubleshooting/tenant-or-user-not-found).
+
 ```bash
 curl https://dracingpro.onrender.com/health/live
 curl https://dracingpro.onrender.com/health/ready
