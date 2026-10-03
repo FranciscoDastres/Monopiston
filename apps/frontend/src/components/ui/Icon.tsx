@@ -5,8 +5,6 @@ export type IconName =
   | 'calendar'
   | 'chart'
   | 'check'
-  | 'chevron-left'
-  | 'chevron-right'
   | 'clock'
   | 'close'
   | 'edit'
@@ -16,8 +14,6 @@ export type IconName =
   | 'mail'
   | 'menu'
   | 'phone'
-  | 'pause'
-  | 'play'
   | 'plus'
   | 'receipt'
   | 'search'
@@ -51,8 +47,6 @@ const paths: Record<IconName, ReactNode> = {
     </>
   ),
   check: <path d="m5 12 4 4L19 6" />,
-  'chevron-left': <path d="m15 5-7 7 7 7" />,
-  'chevron-right': <path d="m9 5 7 7-7 7" />,
   clock: (
     <>
       <circle cx="12" cy="12" r="9" />
@@ -95,8 +89,6 @@ const paths: Record<IconName, ReactNode> = {
     <path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L20 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2Z" />
   ),
   plus: <path d="M12 5v14M5 12h14" />,
-  pause: <path d="M8 5v14M16 5v14" />,
-  play: <path d="m8 4 12 8-12 8V4Z" />,
   receipt: (
     <>
       <path d="M6 3h12v18l-3-2-3 2-3-2-3 2V3Z" />

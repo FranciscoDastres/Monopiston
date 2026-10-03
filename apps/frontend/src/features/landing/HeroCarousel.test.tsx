@@ -109,6 +109,31 @@ describe('HeroCarousel', () => {
     ).toBeInTheDocument();
   });
 
+  it('supports keyboard navigation without intercepting links in the hero', () => {
+    render(
+      <HeroCarousel>
+        <a href="#servicios">Ver servicios</a>
+      </HeroCarousel>,
+    );
+    const gallery = screen.getByRole('group', {
+      name: 'Galería de fotografías',
+    });
+    fireEvent.focus(gallery);
+    fireEvent.keyDown(gallery, { key: 'ArrowLeft' });
+    expectSlide(3, 'navi-service-hero-3.webp');
+    fireEvent.keyDown(gallery, { key: 'ArrowRight' });
+    expectSlide(1, 'navi-service-hero.webp');
+    fireEvent.keyDown(gallery, { key: 'End' });
+    expectSlide(3, 'navi-service-hero-3.webp');
+    fireEvent.keyDown(gallery, { key: 'Home' });
+    expectSlide(1, 'navi-service-hero.webp');
+    fireEvent.keyDown(screen.getByRole('link', { name: 'Ver servicios' }), {
+      key: 'ArrowRight',
+    });
+    advance();
+    expectSlide(1, 'navi-service-hero.webp');
+  });
+
   it('starts paused with reduced motion and allows an explicit opt-in', () => {
     media.matches = true;
     render(<HeroCarousel>Contenido del taller</HeroCarousel>);
