@@ -65,15 +65,16 @@ El administrador no usa Google ni el acceso de desarrollo. Después de aplicar
 las migraciones se aprovisiona una sola vez con acceso directo a PostgreSQL:
 
 ```bash
-ADMIN_EMAIL=administrador@ejemplo.cl \
-ADMIN_PASSWORD='una-clave-segura-de-12-o-mas' \
-ADMIN_DISPLAY_NAME='Administrador Monopiston' \
+read -r -p 'Correo del administrador: ' admin_email
+ADMIN_EMAIL="$admin_email" \
+ADMIN_GENERATE_PASSWORD=true \
+ADMIN_DISPLAY_NAME='Administrador Taller Mono Pistón' \
 pnpm --filter @monopiston/backend admin:create
+unset admin_email
 ```
 
-Para generar una contraseña aleatoria, reemplazar `ADMIN_PASSWORD` por
-`ADMIN_GENERATE_PASSWORD=true` y guardarla inmediatamente en un gestor de
-contraseñas. Un índice único en PostgreSQL impide crear un segundo administrador
+El comando genera una contraseña aleatoria y la muestra una sola vez. Guardarla
+inmediatamente en un gestor de contraseñas. Un índice único en PostgreSQL impide crear un segundo administrador
 y el comando rechaza toda ejecución posterior.
 
 En el modal de acceso, los clientes eligen Google y el administrador usa el
@@ -113,3 +114,16 @@ como hash scrypt y no puede convertirse desde el panel de clientes.
   repositorio.
 - `NODE_ENV=production` deshabilita el acceso de desarrollo.
 - `COOKIE_SECURE=true` y URLs HTTPS en `API_ORIGIN` / `APP_ORIGIN`.
+
+## Información privada
+
+Los archivos `.env` y la carpeta `.private/` se excluyen de Git y del contexto
+de construcción de Docker. Utilizar esa carpeta para notas operativas locales;
+nunca publicar correos de acceso, contraseñas, tokens o URLs de conexión reales
+en esta documentación. Las notas privadas deben mantenerse fuera de commits y
+artefactos compartidos.
+
+Retirar una contraseña publicada no la revoca ni la elimina del historial.
+Debe cambiarse en la cuenta afectada y revocarse sus sesiones. Cambiar la
+variable `ADMIN_PASSWORD` no modifica un administrador ya existente: el
+aprovisionamiento solo crea la primera cuenta.
