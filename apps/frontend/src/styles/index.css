@@ -198,13 +198,12 @@ button,
   object-position: 62% center;
 }
 
-.landing-hero-slide {
-  opacity: 1;
-  transition: opacity 750ms ease;
+.carousel-thumbnails {
+  scrollbar-width: none;
 }
 
-.landing-hero-slide[aria-hidden='true'] {
-  opacity: 0;
+.carousel-thumbnails::-webkit-scrollbar {
+  display: none;
 }
 
 @media (min-width: 640px) {
