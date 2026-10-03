@@ -234,8 +234,8 @@ export function LandingPage() {
 
       <main id="top">
         <HeroCarousel>
-          <div className="landing-hero-content mx-auto flex max-w-7xl items-end px-5 pt-64 pb-28 sm:items-center sm:px-6 sm:py-20 lg:px-10">
-            <div className="max-w-2xl">
+          <div className="landing-hero-content mx-auto flex max-w-7xl items-end px-5 pt-56 pb-40 sm:items-center sm:px-6 sm:pt-20 sm:pb-28 lg:px-10">
+            <div className="pointer-events-auto max-w-2xl">
               <p className="text-muted mb-5 text-sm font-semibold">
                 Especialistas en Honda NAVI · {BRAND.location}
               </p>
