@@ -19,16 +19,21 @@ const migrationsDir =
   process.env.MIGRATIONS_DIR ??
   path.resolve(scriptDir, '../../../database/migrations');
 
-const client = new pg.Client({ connectionString: databaseUrl });
-await client.connect();
+const client = new pg.Client({
+  connectionString: databaseUrl,
+  connectionTimeoutMillis: 15_000,
+});
+let lockAcquired = false;
 
 try {
+  await client.connect();
   // Supabase via Supavisor session mode keeps this session-level advisory lock
   // for the lifetime of the connection. It prevents two Render instances from
   // applying the same migration during a zero-downtime deploy.
   await client.query(
     "SELECT pg_advisory_lock(hashtext('dracing_schema_migrations')::bigint)",
   );
+  lockAcquired = true;
 
   await client.query(`
     CREATE TABLE IF NOT EXISTS schema_migrations (
@@ -59,11 +64,25 @@ try {
       filename,
     ]);
   }
+} catch (error) {
+  if (/tenant(?:\/| or )user.*not found/i.test(error.message ?? '')) {
+    console.error(
+      'Supabase rechazó DATABASE_URL: el host y el usuario no corresponden a un proyecto del pooler. ' +
+        'Copia la cadena completa desde Supabase > Connect > Session pooler (puerto 5432) ' +
+        'y actualiza DATABASE_URL en Render. Conserva el host exacto y el usuario con su referencia de proyecto; ' +
+        'no deduzcas el host a partir de la región. Las migraciones no se ejecutaron.',
+    );
+    process.exitCode = 1;
+  } else {
+    throw error;
+  }
 } finally {
-  await client
-    .query(
-      "SELECT pg_advisory_unlock(hashtext('dracing_schema_migrations')::bigint)",
-    )
-    .catch(() => undefined);
+  if (lockAcquired) {
+    await client
+      .query(
+        "SELECT pg_advisory_unlock(hashtext('dracing_schema_migrations')::bigint)",
+      )
+      .catch(() => undefined);
+  }
   await client.end();
 }
