@@ -99,6 +99,6 @@ export class SessionService {
   }
 }
 
-export function hashSessionToken(token: string): Uint8Array<ArrayBuffer> {
+function hashSessionToken(token: string): Uint8Array<ArrayBuffer> {
   return Uint8Array.from(createHash('sha256').update(token).digest());
 }

@@ -17,14 +17,6 @@ export const CONTACT = {
   email: 'contacto@monopiston.cl',
   /** Phone shown under "Contáctanos". */
   phoneDisplay: '+56 9 7319 6187',
-  /**
-   * Social network URLs. Placeholders for now — the pages don't exist yet;
-   * swap these for the real profile URLs once created.
-   */
-  social: {
-    facebook: 'https://facebook.com',
-    instagram: 'https://instagram.com',
-  },
   /** WhatsApp number in international format, digits only (for wa.me links). */
   whatsappNumber: '56973196187',
 } as const;

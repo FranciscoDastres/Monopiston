@@ -77,7 +77,7 @@ const REDACTED_LOG_PATHS = [
 
 // Apply the redaction config whenever logging is enabled, preserving any extra
 // pino options (e.g. a custom `stream` in tests).
-export function resolveLoggerOptions(
+function resolveLoggerOptions(
   logger: FastifyServerOptions['logger'],
 ): NonNullable<FastifyServerOptions['logger']> {
   if (logger === false) return false;

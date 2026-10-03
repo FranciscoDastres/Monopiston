@@ -2,7 +2,7 @@ import { TZDate } from '@date-fns/tz';
 
 import { AppointmentInputError } from './appointment-errors.js';
 
-export const WORKSHOP_TIME_ZONE = 'America/Santiago';
+const WORKSHOP_TIME_ZONE = 'America/Santiago';
 
 export function getWorkshopDay(date: string) {
   const [year, month, day] = date.split('-').map(Number);

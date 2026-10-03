@@ -1,4 +1,4 @@
-# Monopiston
+# Taller Mono Pistón
 User-agent: *
 Allow: /
 # Áreas privadas (requieren sesión): fuera del índice.

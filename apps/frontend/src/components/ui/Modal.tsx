@@ -25,7 +25,10 @@ export function Modal({
     >
       <Dialog.Portal>
         <Dialog.Overlay className="data-[state=closed]:animate-out data-[state=open]:animate-in fixed inset-0 z-[100] bg-black/75 backdrop-blur-sm" />
-        <Dialog.Content className="bg-surface fixed top-1/2 left-1/2 z-[101] max-h-[calc(100vh-2rem)] w-[calc(100%-2rem)] max-w-md -translate-x-1/2 -translate-y-1/2 overflow-y-auto rounded-2xl border border-white/10 p-6 shadow-2xl focus:outline-none sm:p-7">
+        <Dialog.Content
+          aria-describedby={undefined}
+          className="bg-surface fixed top-1/2 left-1/2 z-[101] max-h-[calc(100vh-2rem)] w-[calc(100%-2rem)] max-w-md -translate-x-1/2 -translate-y-1/2 overflow-y-auto rounded-2xl border border-white/10 p-6 shadow-2xl focus:outline-none sm:p-7"
+        >
           <Dialog.Close asChild>
             <button
               aria-label="Cerrar"

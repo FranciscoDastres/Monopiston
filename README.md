@@ -1,4 +1,4 @@
-# Monopiston
+# Taller Mono Pistón
 
 Base de arquitectura para la plataforma de gestión de citas de un taller
 especializado en Honda NAVI.
@@ -19,6 +19,7 @@ especializado en Honda NAVI.
 - [Modelo de datos](docs/data-model.md)
 - [Arquitectura y estructura](docs/architecture.md)
 - [Seguridad y autenticación](docs/security.md)
+- [Frontend, marca y limpieza](docs/frontend.md)
 - [UI/UX](docs/ui-ux.md)
 - [Infraestructura y Docker](docs/infrastructure.md)
 - [Desarrollo local](docs/local-development.md)
@@ -26,6 +27,7 @@ especializado en Honda NAVI.
 - [Roadmap](docs/roadmap.md)
 - [Estado actualizado](docs/status-2026-10-01.md)
 - [Skills de desarrollo](docs/skills.md)
+- [Perfiles de modelos y skills de Codex](docs/codex.md)
 - [Deployment](docs/deploy-render.md)
 
 La primera migración propuesta está en
@@ -49,7 +51,7 @@ existe uno):
 ```bash
 ADMIN_EMAIL=administrador@ejemplo.cl \
 ADMIN_PASSWORD='una-clave-segura-de-12-o-mas' \
-ADMIN_DISPLAY_NAME='Administrador Monopiston' \
+ADMIN_DISPLAY_NAME='Administrador Taller Mono Pistón' \
 pnpm --filter @monopiston/backend admin:create
 ```
 
@@ -83,6 +85,7 @@ pnpm lint
 pnpm typecheck
 pnpm test
 pnpm build
+pnpm check:unused
 ```
 
 ## Configurar Google OAuth

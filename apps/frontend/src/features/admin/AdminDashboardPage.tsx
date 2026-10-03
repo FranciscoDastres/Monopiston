@@ -1,6 +1,6 @@
 import type { AdminAppointment, AdminMetrics } from '@monopiston/contracts';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
-import { lazy, Suspense, useMemo, useState } from 'react';
+import { useMemo, useState } from 'react';
 
 import { Badge } from '../../components/ui/Badge';
 import { Button } from '../../components/ui/Button';
@@ -10,21 +10,11 @@ import { Icon, type IconName } from '../../components/ui/Icon';
 import { formatCLP } from '../../components/ui/money';
 import { apiClient } from '../../lib/api-client';
 
-// recharts pesa ~380 kB; se carga en un chunk aparte para que las métricas
-// del dashboard pinten sin esperar la librería de gráficos.
-const RevenueAreaChart = lazy(() =>
-  import('./DashboardCharts').then((module) => ({
-    default: module.RevenueAreaChart,
-  })),
-);
-const StatusDonutChart = lazy(() =>
-  import('./DashboardCharts').then((module) => ({
-    default: module.StatusDonutChart,
-  })),
-);
+import { RevenueAreaChart, StatusDonutChart } from './DashboardCharts';
 
 const RANGE_OPTIONS = [7, 30, 90] as const;
 const STATUS_LABELS: Record<string, string> = {
+  pending_payment: 'Pendientes de pago',
   cancelled: 'Canceladas',
   checked_in: 'Recibidas',
   completed: 'Completadas',
@@ -182,13 +172,7 @@ export function AdminDashboardPage() {
                   Servicios completados en el período
                 </p>
               </div>
-              <Suspense
-                fallback={
-                  <div className="mt-5 h-72 animate-pulse rounded-xl bg-white/5" />
-                }
-              >
-                <RevenueAreaChart data={revenueData} />
-              </Suspense>
+              <RevenueAreaChart data={revenueData} />
             </Card>
 
             <Card className="p-5 sm:p-6">
@@ -197,13 +181,7 @@ export function AdminDashboardPage() {
                 Estados operativos del período
               </p>
               {statusData.length ? (
-                <Suspense
-                  fallback={
-                    <div className="mt-4 h-56 animate-pulse rounded-xl bg-white/5" />
-                  }
-                >
-                  <StatusDonutChart data={statusData} />
-                </Suspense>
+                <StatusDonutChart data={statusData} />
               ) : (
                 <p className="text-muted mt-8 text-sm">
                   Sin citas en este período.

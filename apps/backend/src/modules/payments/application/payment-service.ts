@@ -268,7 +268,7 @@ export class PaymentService {
     if (confirmedPhone) {
       try {
         await this.whatsapp.send({
-          body: 'Tu pago fue confirmado y tu cita en Monopiston está reservada. ¡Te esperamos!',
+          body: 'Tu pago fue confirmado y tu cita en Taller Mono Pistón está reservada. ¡Te esperamos!',
           kind: 'payment_confirmed',
           to: confirmedPhone,
         });
