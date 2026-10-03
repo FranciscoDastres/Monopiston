@@ -45,19 +45,10 @@ pnpm db:migrate
 pnpm dev
 ```
 
-Después de las migraciones, crear el único administrador (el comando falla si ya
-existe uno):
-
-```bash
-ADMIN_EMAIL=administrador@ejemplo.cl \
-ADMIN_PASSWORD='una-clave-segura-de-12-o-mas' \
-ADMIN_DISPLAY_NAME='Administrador Taller Mono Pistón' \
-pnpm --filter @monopiston/backend admin:create
-```
-
-También se puede usar `ADMIN_GENERATE_PASSWORD=true` en lugar de
-`ADMIN_PASSWORD`; la contraseña generada se muestra una sola vez. Estas variables
-son de ejecución puntual y no deben guardarse en `.env`.
+La cuenta de administrador se crea una sola vez después de las migraciones.
+Consulta el procedimiento de [desarrollo local](docs/local-development.md).
+Cada entorno debe utilizar una contraseña única, guardada en un gestor de
+contraseñas y fuera del repositorio.
 
 - Frontend: <http://localhost:5180>
 - API: <http://localhost:3001/api>
